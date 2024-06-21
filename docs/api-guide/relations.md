@@ -13,7 +13,11 @@ Relational fields are used to represent model relationships.  They can be applie
 
 ---
 
+<<<<<<< HEAD
 **Note:** The relational fields are declared in `relations.py`, but by convention you should import them from the `serializers` module, using `from drf_comments import serializers` and refer to fields as `serializers.<FieldName>`.
+=======
+**Note:** The relational fields are declared in `relations.py`, but by convention you should import them from the `serializers` module, using `from rest_framework import serializers` and refer to fields as `serializers.<FieldName>`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ---
 
@@ -436,8 +440,13 @@ This cannot be represented with the default implementation, which accepts only a
 
 In this case we'd need to override `HyperlinkedRelatedField` to get the behavior we want:
 
+<<<<<<< HEAD
     from drf_comments import serializers
     from drf_comments.reverse import reverse
+=======
+    from rest_framework import serializers
+    from rest_framework.reverse import reverse
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CustomerHyperlink(serializers.HyperlinkedRelatedField):
         # We define these as class attributes, so we don't need to pass them as arguments.

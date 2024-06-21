@@ -1,9 +1,15 @@
 from django.test import TestCase, override_settings
 from django.urls import NoReverseMatch, path
 
+<<<<<<< HEAD
 from drf_comments.reverse import reverse
 from drf_comments.test import APIRequestFactory
 from drf_comments.versioning import BaseVersioning
+=======
+from rest_framework.reverse import reverse
+from rest_framework.test import APIRequestFactory
+from rest_framework.versioning import BaseVersioning
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

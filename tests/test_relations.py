@@ -7,9 +7,15 @@ from django.test import override_settings
 from django.urls import re_path
 from django.utils.datastructures import MultiValueDict
 
+<<<<<<< HEAD
 from drf_comments import relations, serializers
 from drf_comments.fields import empty
 from drf_comments.test import APISimpleTestCase
+=======
+from rest_framework import relations, serializers
+from rest_framework.fields import empty
+from rest_framework.test import APISimpleTestCase
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 from .utils import (
     BadType, MockObject, MockQueryset, fail_reverse, mock_reverse

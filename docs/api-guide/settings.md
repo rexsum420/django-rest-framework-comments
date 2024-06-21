@@ -15,10 +15,17 @@ For example your project's `settings.py` file might include something like this:
 
     REST_FRAMEWORK = {
         'DEFAULT_RENDERER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.renderers.JSONRenderer',
         ],
         'DEFAULT_PARSER_CLASSES': [
             'drf_comments.parsers.JSONParser',
+=======
+            'rest_framework.renderers.JSONRenderer',
+        ],
+        'DEFAULT_PARSER_CLASSES': [
+            'rest_framework.parsers.JSONParser',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ]
     }
 
@@ -27,7 +34,11 @@ For example your project's `settings.py` file might include something like this:
 If you need to access the values of REST framework's API settings in your project,
 you should use the `api_settings` object.  For example.
 
+<<<<<<< HEAD
     from drf_comments.settings import api_settings
+=======
+    from rest_framework.settings import api_settings
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     print(api_settings.DEFAULT_AUTHENTICATION_CLASSES)
 
@@ -48,8 +59,13 @@ A list or tuple of renderer classes, that determines the default set of renderer
 Default:
 
     [
+<<<<<<< HEAD
         'drf_comments.renderers.JSONRenderer',
         'drf_comments.renderers.BrowsableAPIRenderer',
+=======
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 #### DEFAULT_PARSER_CLASSES
@@ -59,9 +75,15 @@ A list or tuple of parser classes, that determines the default set of parsers us
 Default:
 
     [
+<<<<<<< HEAD
         'drf_comments.parsers.JSONParser',
         'drf_comments.parsers.FormParser',
         'drf_comments.parsers.MultiPartParser'
+=======
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 #### DEFAULT_AUTHENTICATION_CLASSES
@@ -71,8 +93,13 @@ A list or tuple of authentication classes, that determines the default set of au
 Default:
 
     [
+<<<<<<< HEAD
         'drf_comments.authentication.SessionAuthentication',
         'drf_comments.authentication.BasicAuthentication'
+=======
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 #### DEFAULT_PERMISSION_CLASSES
@@ -82,7 +109,11 @@ A list or tuple of permission classes, that determines the default set of permis
 Default:
 
     [
+<<<<<<< HEAD
         'drf_comments.permissions.AllowAny',
+=======
+        'rest_framework.permissions.AllowAny',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 #### DEFAULT_THROTTLE_CLASSES
@@ -95,13 +126,21 @@ Default: `[]`
 
 A content negotiation class, that determines how a renderer is selected for the response, given an incoming request.
 
+<<<<<<< HEAD
 Default: `'drf_comments.negotiation.DefaultContentNegotiation'`
+=======
+Default: `'rest_framework.negotiation.DefaultContentNegotiation'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 #### DEFAULT_SCHEMA_CLASS
 
 A view inspector class that will be used for schema generation.
 
+<<<<<<< HEAD
 Default: `'drf_comments.schemas.openapi.AutoSchema'`
+=======
+Default: `'rest_framework.schemas.openapi.AutoSchema'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ---
 
@@ -212,8 +251,13 @@ The format of any of these renderer classes may be used when constructing a test
 Default:
 
     [
+<<<<<<< HEAD
         'drf_comments.renderers.MultiPartRenderer',
         'drf_comments.renderers.JSONRenderer'
+=======
+        'rest_framework.renderers.MultiPartRenderer',
+        'rest_framework.renderers.JSONRenderer'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 ---
@@ -384,7 +428,11 @@ If the view instance inherits `ViewSet`, it may have been initialized with sever
 * `suffix`: Text used when differentiating individual views in a viewset. This argument is mutually exclusive to `name`.
 * `detail`: Boolean that differentiates an individual view in a viewset as either being a 'list' or 'detail' view.
 
+<<<<<<< HEAD
 Default: `'drf_comments.views.get_view_name'`
+=======
+Default: `'rest_framework.views.get_view_name'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 #### VIEW_DESCRIPTION_FUNCTION
 
@@ -403,7 +451,11 @@ If the view instance inherits `ViewSet`, it may have been initialized with sever
 
 * `description`: A description explicitly provided to the view in the viewset. Typically, this is set by extra viewset `action`s, and should be used as-is.
 
+<<<<<<< HEAD
 Default: `'drf_comments.views.get_view_description'`
+=======
+Default: `'rest_framework.views.get_view_description'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ## HTML Select Field cutoffs
 
@@ -437,7 +489,11 @@ This should be a function with the following signature:
 
 * `exc`: The exception.
 
+<<<<<<< HEAD
 Default: `'drf_comments.views.exception_handler'`
+=======
+Default: `'rest_framework.views.exception_handler'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 #### NON_FIELD_ERRORS_KEY
 

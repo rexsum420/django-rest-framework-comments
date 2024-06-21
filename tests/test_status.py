@@ -1,6 +1,10 @@
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments.status import (
+=======
+from rest_framework.status import (
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     is_client_error, is_informational, is_redirect, is_server_error, is_success
 )
 

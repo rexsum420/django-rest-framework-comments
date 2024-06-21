@@ -25,7 +25,11 @@ For example:
 
     from myapp.models import Purchase
     from myapp.serializers import PurchaseSerializer
+<<<<<<< HEAD
     from drf_comments import generics
+=======
+    from rest_framework import generics
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class PurchaseList(generics.ListAPIView):
         serializer_class = PurchaseSerializer
@@ -95,21 +99,36 @@ Generic filters can also present themselves as HTML controls in the browsable AP
 The default filter backends may be set globally, using the `DEFAULT_FILTER_BACKENDS` setting. For example.
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_FILTER_BACKENDS': ['django_filters.drf_comments.DjangoFilterBackend']
+=======
+        'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     }
 
 You can also set the filter backends on a per-view, or per-viewset basis,
 using the `GenericAPIView` class-based views.
 
+<<<<<<< HEAD
     import django_filters.drf_comments
     from django.contrib.auth.models import User
     from myapp.serializers import UserSerializer
     from drf_comments import generics
+=======
+    import django_filters.rest_framework
+    from django.contrib.auth.models import User
+    from myapp.serializers import UserSerializer
+    from rest_framework import generics
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserListView(generics.ListAPIView):
         queryset = User.objects.all()
         serializer_class = UserSerializer
+<<<<<<< HEAD
         filter_backends = [django_filters.drf_comments.DjangoFilterBackend]
+=======
+        filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ## Filtering and object lookups
 
@@ -160,12 +179,20 @@ Then add `'django_filters'` to Django's `INSTALLED_APPS`:
 You should now either add the filter backend to your settings:
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_FILTER_BACKENDS': ['django_filters.drf_comments.DjangoFilterBackend']
+=======
+        'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     }
 
 Or add the filter backend to an individual View or ViewSet.
 
+<<<<<<< HEAD
     from django_filters.drf_comments import DjangoFilterBackend
+=======
+    from django_filters.rest_framework import DjangoFilterBackend
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserListView(generics.ListAPIView):
         ...
@@ -198,7 +225,11 @@ When in use, the browsable API will include a `SearchFilter` control:
 
 The `SearchFilter` class will only be applied if the view has a `search_fields` attribute set.  The `search_fields` attribute should be a list of names of text type fields on the model, such as `CharField` or `TextField`.
 
+<<<<<<< HEAD
     from drf_comments import filters
+=======
+    from rest_framework import filters
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserListView(generics.ListAPIView):
         queryset = User.objects.all()
@@ -239,7 +270,11 @@ By default, the search parameter is named `'search'`, but this may be overridden
 
 To dynamically change search fields based on request content, it's possible to subclass the `SearchFilter` and override the `get_search_fields()` function. For example, the following subclass will only search on `title` if the query parameter `title_only` is in the request:
 
+<<<<<<< HEAD
     from drf_comments import filters
+=======
+    from rest_framework import filters
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CustomSearchFilter(filters.SearchFilter):
         def get_search_fields(self, view, request):
@@ -361,7 +396,11 @@ The [djangorestframework-word-filter][django-rest-framework-word-search-filter] 
 
 [cite]: https://docs.djangoproject.com/en/stable/topics/db/queries/#retrieving-specific-objects-with-filters
 [django-filter-docs]: https://django-filter.readthedocs.io/en/latest/index.html
+<<<<<<< HEAD
 [django-filter-drf-docs]: https://django-filter.readthedocs.io/en/latest/guide/drf_comments.html
+=======
+[django-filter-drf-docs]: https://django-filter.readthedocs.io/en/latest/guide/rest_framework.html
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 [search-django-admin]: https://docs.djangoproject.com/en/stable/ref/contrib/admin/#django.contrib.admin.ModelAdmin.search_fields
 [django-rest-framework-filters]: https://github.com/philipn/django-rest-framework-filters
 [django-rest-framework-word-search-filter]: https://github.com/trollknurr/django-rest-framework-word-search-filter

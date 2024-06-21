@@ -106,7 +106,11 @@ For API clients the most appropriate of these will typically be to use the `Acce
 [django-translation]: https://docs.djangoproject.com/en/stable/topics/i18n/translation
 [custom-exception-handler]: ../api-guide/exceptions.md#custom-exception-handling
 [transifex-project]: https://www.transifex.com/projects/p/django-rest-framework/
+<<<<<<< HEAD
 [django-po-source]: https://raw.githubusercontent.com/encode/django-rest-framework/master/drf_comments/locale/en_US/LC_MESSAGES/django.po
+=======
+[django-po-source]: https://raw.githubusercontent.com/encode/django-rest-framework/master/rest_framework/locale/en_US/LC_MESSAGES/django.po
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 [django-language-preference]: https://docs.djangoproject.com/en/stable/topics/i18n/translation/#how-django-discovers-language-preference
 [django-locale-paths]: https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-LOCALE_PATHS
 [django-locale-name]: https://docs.djangoproject.com/en/stable/topics/i18n/#term-locale-name

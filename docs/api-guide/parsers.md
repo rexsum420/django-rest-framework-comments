@@ -33,16 +33,26 @@ The default set of parsers may be set globally, using the `DEFAULT_PARSER_CLASSE
 
     REST_FRAMEWORK = {
         'DEFAULT_PARSER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.parsers.JSONParser',
+=======
+            'rest_framework.parsers.JSONParser',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ]
     }
 
 You can also set the parsers used for an individual view, or viewset,
 using the `APIView` class-based views.
 
+<<<<<<< HEAD
     from drf_comments.parsers import JSONParser
     from drf_comments.response import Response
     from drf_comments.views import APIView
+=======
+    from rest_framework.parsers import JSONParser
+    from rest_framework.response import Response
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleView(APIView):
         """
@@ -55,9 +65,15 @@ using the `APIView` class-based views.
 
 Or, if you're using the `@api_view` decorator with function based views.
 
+<<<<<<< HEAD
     from drf_comments.decorators import api_view
     from drf_comments.decorators import parser_classes
     from drf_comments.parsers import JSONParser
+=======
+    from rest_framework.decorators import api_view
+    from rest_framework.decorators import parser_classes
+    from rest_framework.parsers import JSONParser
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     @api_view(['POST'])
     @parser_classes([JSONParser])
@@ -190,10 +206,17 @@ Modify your REST framework settings.
 
     REST_FRAMEWORK = {
         'DEFAULT_PARSER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments_yaml.parsers.YAMLParser',
         ],
         'DEFAULT_RENDERER_CLASSES': [
             'drf_comments_yaml.renderers.YAMLRenderer',
+=======
+            'rest_framework_yaml.parsers.YAMLParser',
+        ],
+        'DEFAULT_RENDERER_CLASSES': [
+            'rest_framework_yaml.renderers.YAMLRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ],
     }
 
@@ -211,10 +234,17 @@ Modify your REST framework settings.
 
     REST_FRAMEWORK = {
         'DEFAULT_PARSER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments_xml.parsers.XMLParser',
         ],
         'DEFAULT_RENDERER_CLASSES': [
             'drf_comments_xml.renderers.XMLRenderer',
+=======
+            'rest_framework_xml.parsers.XMLParser',
+        ],
+        'DEFAULT_RENDERER_CLASSES': [
+            'rest_framework_xml.renderers.XMLRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ],
     }
 

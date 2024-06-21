@@ -34,7 +34,11 @@ How you vary the API behavior is up to you, but one example you might typically 
 
 The `reverse` function included by REST framework ties in with the versioning scheme. You need to make sure to include the current `request` as a keyword argument, like so.
 
+<<<<<<< HEAD
     from drf_comments.reverse import reverse
+=======
+    from rest_framework.reverse import reverse
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     reverse('bookings-list', request=request)
 
@@ -59,7 +63,11 @@ Doing so will allow any returned URLs to include the appropriate versioning.
 The versioning scheme is defined by the `DEFAULT_VERSIONING_CLASS` settings key.
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_VERSIONING_CLASS': 'drf_comments.versioning.NamespaceVersioning'
+=======
+        'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     }
 
 Unless it is explicitly set, the value for `DEFAULT_VERSIONING_CLASS` will be `None`. In this case the `request.version` attribute will always return `None`.
@@ -79,8 +87,13 @@ The following settings keys are also used to control versioning:
 
 You can also set your versioning class plus those three values on a per-view or a per-viewset basis by defining your own versioning scheme and using the `default_version`, `allowed_versions` and `version_param` class variables. For example, if you want to use `URLPathVersioning`:
 
+<<<<<<< HEAD
     from drf_comments.versioning import URLPathVersioning
     from drf_comments.views import APIView
+=======
+    from rest_framework.versioning import URLPathVersioning
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleVersioning(URLPathVersioning):
         default_version = ...

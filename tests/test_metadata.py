@@ -3,11 +3,19 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments import (
     exceptions, metadata, serializers, status, versioning, views
 )
 from drf_comments.renderers import BrowsableAPIRenderer
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework import (
+    exceptions, metadata, serializers, status, versioning, views
+)
+from rest_framework.renderers import BrowsableAPIRenderer
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 from .models import BasicModel
 

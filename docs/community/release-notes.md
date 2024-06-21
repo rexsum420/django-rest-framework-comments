@@ -205,7 +205,11 @@ Date: 25th March 2021
 
 Date: 13th October 2020
 
+<<<<<<< HEAD
 * Fix issue if `drf_comments.authtoken.models` is imported, but `drf_comments.authtoken` is not in INSTALLED_APPS. [#7571]
+=======
+* Fix issue if `rest_framework.authtoken.models` is imported, but `rest_framework.authtoken` is not in INSTALLED_APPS. [#7571]
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * Ignore subclasses of BrowsableAPIRenderer in OpenAPI schema. [#7497]
 * Narrower exception catching in serilizer fields, to ensure that any errors in broken `get_queryset()` methods are not masked. [#7480]
 
@@ -454,7 +458,11 @@ Be sure to upgrade to Python 3 before upgrading to Django REST Framework 3.10.
 **Date**: [6th April 2018][3.8.2-milestone]
 
 * Fix `read_only` + `default` `unique_together` validation. [#5922][gh5922]
+<<<<<<< HEAD
 * authtoken.views import coreapi from drf_comments.compat, not directly. [#5921][gh5921]
+=======
+* authtoken.views import coreapi from rest_framework.compat, not directly. [#5921][gh5921]
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * Docs: Add missing argument 'detail' to Route [#5920][gh5920]
 
 
@@ -731,7 +739,11 @@ Be sure to upgrade to Python 3 before upgrading to Django REST Framework 3.10.
 
     **Possible backwards compatibility break** if you were relying on datetime strings being UTC. Have client interpret datetimes or [set default or active timezone (docs)][djangodocs-set-timezone] to UTC if needed.
 
+<<<<<<< HEAD
 * Removed DjangoFilterBackend inline with deprecation policy. Use `django_filters.drf_comments.FilterSet` and/or `django_filters.drf_comments.DjangoFilterBackend` instead. [#5273][gh5273]
+=======
+* Removed DjangoFilterBackend inline with deprecation policy. Use `django_filters.rest_framework.FilterSet` and/or `django_filters.rest_framework.DjangoFilterBackend` instead. [#5273][gh5273]
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * Don't strip microseconds from `time` when encoding. Makes consistent with `datetime`.
     **BC Change**: Previously only milliseconds were encoded. [#5440][gh5440]
 * Added `STRICT_JSON` setting (default `True`) to raise exception for the extended float values (`nan`, `inf`, `-inf`) accepted by Python's `json` module.
@@ -739,7 +751,11 @@ Be sure to upgrade to Python 3 before upgrading to Django REST Framework 3.10.
 * Add support for `page_size` parameter in CursorPaginator class [#5250][gh5250]
 * Make `DEFAULT_PAGINATION_CLASS` `None` by default.
     **BC Change**: If your were **just** setting `PAGE_SIZE` to enable pagination you will need to add `DEFAULT_PAGINATION_CLASS`.
+<<<<<<< HEAD
     The previous default was `drf_comments.pagination.PageNumberPagination`. There is a system check warning to catch this case. You may silence that if you are setting pagination class on a per-view basis. [#5170][gh5170]
+=======
+    The previous default was `rest_framework.pagination.PageNumberPagination`. There is a system check warning to catch this case. You may silence that if you are setting pagination class on a per-view basis. [#5170][gh5170]
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * Catch `APIException` from `get_serializer_fields` in schema generation. [#5443][gh5443]
 * Allow custom authentication and permission classes when using `include_docs_urls` [#5448][gh5448]
 * Defer translated string evaluation on validators. [#5452][gh5452]
@@ -907,7 +923,11 @@ See the [release announcement][3.6-release].
 
 **Date**: [21st October 2016][3.5.1-milestone]
 
+<<<<<<< HEAD
 * Make `drf_comments/compat.py` imports. ([#4612][gh4612], [#4608][gh4608], [#4601][gh4601])
+=======
+* Make `rest_framework/compat.py` imports. ([#4612][gh4612], [#4608][gh4608], [#4601][gh4601])
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * Fix bug in schema base path generation. ([#4611][gh4611], [#4605][gh4605])
 * Fix broken case of ListSerializer with single item. ([#4609][gh4609], [#4606][gh4606])
 * Remove bare `raise` for Python 3.5 compat. ([#4600][gh4600])
@@ -1129,7 +1149,11 @@ See the [release announcement][3.6-release].
 * Fix `AutoFilterSet` to inherit from `default_filter_set`. Thanks to Tom Linford for the fix. ([#3753][gh3753])
 * Fix transifex config to handle the new Chinese language codes. Thanks to @nypisces for the report and fix. ([#3739][gh3739])
 * `DateTimeField` does not handle empty values correctly. Thanks to Mick Parker for the report and fix. ([#3731][gh3731], [#3726][gh3728])
+<<<<<<< HEAD
 * Raise error when setting a removed drf_comments setting. Thanks to Luis San Pablo for the fix. ([#3715][gh3715])
+=======
+* Raise error when setting a removed rest_framework setting. Thanks to Luis San Pablo for the fix. ([#3715][gh3715])
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * Add missing csrf_token in AdminRenderer post form. Thanks to Piotr Śniegowski for the fix. ([#3703][gh3703])
 * Refactored `_get_reverse_relationships()` to use correct `to_field`. Thanks to Benjamin Phillips for the fix. ([#3696][gh3696])
 * Document the use of `get_queryset` for `RelatedField`. Thanks to Ryan Hiebert for the fix. ([#3605][gh3605])
@@ -1154,7 +1178,11 @@ See the [release announcement][3.6-release].
 * Fix UUID validation to properly catch invalid input types. ([#3687][gh3687], [#3679][gh3679])
 * Fix caching issues. ([#3628][gh3628], [#3701][gh3701])
 * Fix Admin and API browser for views without a filter_class. ([#3705][gh3705], [#3596][gh3596], [#3597][gh3597])
+<<<<<<< HEAD
 * Add app_name to drf_comments.urls. ([#3714][gh3714])
+=======
+* Add app_name to rest_framework.urls. ([#3714][gh3714])
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * Improve authtoken's views to support url versioning. ([#3718][gh3718], [#3723][gh3723])
 
 ### 3.3.1
@@ -1321,7 +1349,11 @@ See the [release announcement][3.6-release].
 * Use a password input for the AuthTokenSerializer. ([#2741][gh2741])
 * Fix missing anchor closing tag after next button. ([#2691][gh2691])
 * Fix `lookup_url_kwarg` handling in viewsets. ([#2685][gh2685], [#2591][gh2591])
+<<<<<<< HEAD
 * Fix problem with importing `drf_comments.views` in `apps.py` ([#2678][gh2678])
+=======
+* Fix problem with importing `rest_framework.views` in `apps.py` ([#2678][gh2678])
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 * LimitOffsetPagination raises `TypeError` if PAGE_SIZE not set ([#2667][gh2667], [#2700][gh2700])
 * German translation for `min_value` field error message references `max_value`. ([#2645][gh2645])
 * Remove `MergeDict`. ([#2640][gh2640])

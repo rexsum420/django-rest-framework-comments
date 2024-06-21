@@ -4,8 +4,13 @@ from django.core.validators import MaxValueValidator, RegexValidator
 from django.db import models
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments import generics, serializers, status
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework import generics, serializers, status
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

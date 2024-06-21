@@ -57,7 +57,11 @@ The `select_renderer()` method should return a two-tuple of (renderer instance, 
 The following is a custom content negotiation class which ignores the client
 request when selecting the appropriate parser or renderer.
 
+<<<<<<< HEAD
     from drf_comments.negotiation import BaseContentNegotiation
+=======
+    from rest_framework.negotiation import BaseContentNegotiation
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class IgnoreClientContentNegotiation(BaseContentNegotiation):
         def select_parser(self, request, parsers):
@@ -83,8 +87,13 @@ The default content negotiation class may be set globally, using the `DEFAULT_CO
 You can also set the content negotiation used for an individual view, or viewset, using the `APIView` class-based views.
 
     from myapp.negotiation import IgnoreClientContentNegotiation
+<<<<<<< HEAD
     from drf_comments.response import Response
     from drf_comments.views import APIView
+=======
+    from rest_framework.response import Response
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class NoNegotiationView(APIView):
         """

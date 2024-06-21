@@ -5,9 +5,15 @@ from uuid import uuid4
 import pytest
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments.compat import coreapi
 from drf_comments.utils.encoders import JSONEncoder
 from drf_comments.utils.serializer_helpers import ReturnList
+=======
+from rest_framework.compat import coreapi
+from rest_framework.utils.encoders import JSONEncoder
+from rest_framework.utils.serializer_helpers import ReturnList
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 utc = timezone.utc
 

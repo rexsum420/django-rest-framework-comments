@@ -8,8 +8,13 @@ from collections.abc import Mapping
 import pytest
 from django.db import models
 
+<<<<<<< HEAD
 from drf_comments import exceptions, fields, relations, serializers
 from drf_comments.fields import Field
+=======
+from rest_framework import exceptions, fields, relations, serializers
+from rest_framework.fields import Field
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 from .models import (
     ForeignKeyTarget, NestedForeignKeySource, NullableForeignKeySource
@@ -526,7 +531,11 @@ class TestDefaultOutput:
         assert Serializer({'a': {'b': {'c': 'abc'}}}).data == {'c': 'abc'}
 
         # Same test using model objects to exercise both paths in
+<<<<<<< HEAD
         # drf_comments.fields.get_attribute() (#5880)
+=======
+        # rest_framework.fields.get_attribute() (#5880)
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         class ModelSerializer(serializers.Serializer):
             target = serializers.CharField(default='x', source='target.target.name')
 

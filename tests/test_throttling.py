@@ -9,6 +9,7 @@ from django.core.exceptions import ImproperlyConfigured
 from django.http import HttpRequest
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments.request import Request
 from drf_comments.response import Response
 from drf_comments.settings import api_settings
@@ -18,6 +19,17 @@ from drf_comments.throttling import (
     UserRateThrottle
 )
 from drf_comments.views import APIView
+=======
+from rest_framework.request import Request
+from rest_framework.response import Response
+from rest_framework.settings import api_settings
+from rest_framework.test import APIRequestFactory, force_authenticate
+from rest_framework.throttling import (
+    AnonRateThrottle, BaseThrottle, ScopedRateThrottle, SimpleRateThrottle,
+    UserRateThrottle
+)
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class User3SecRateThrottle(UserRateThrottle):

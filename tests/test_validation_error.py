@@ -1,5 +1,6 @@
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments import serializers, status
 from drf_comments.decorators import api_view
 from drf_comments.exceptions import ValidationError
@@ -7,6 +8,15 @@ from drf_comments.response import Response
 from drf_comments.settings import api_settings
 from drf_comments.test import APIRequestFactory
 from drf_comments.views import APIView
+=======
+from rest_framework import serializers, status
+from rest_framework.decorators import api_view
+from rest_framework.exceptions import ValidationError
+from rest_framework.response import Response
+from rest_framework.settings import api_settings
+from rest_framework.test import APIRequestFactory
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

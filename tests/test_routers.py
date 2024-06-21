@@ -6,6 +6,7 @@ from django.db import models
 from django.test import TestCase, override_settings
 from django.urls import include, path, resolve, reverse
 
+<<<<<<< HEAD
 from drf_comments import permissions, serializers, viewsets
 from drf_comments.decorators import action
 from drf_comments.response import Response
@@ -14,6 +15,16 @@ from drf_comments.test import (
     APIClient, APIRequestFactory, URLPatternsTestCase
 )
 from drf_comments.utils import json
+=======
+from rest_framework import permissions, serializers, viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.routers import DefaultRouter, SimpleRouter
+from rest_framework.test import (
+    APIClient, APIRequestFactory, URLPatternsTestCase
+)
+from rest_framework.utils import json
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

@@ -110,7 +110,11 @@
             {% block content %}
               {% if page.meta.source %}
                 {% for filename in page.meta.source %}
+<<<<<<< HEAD
                   <a class="github" href="https://github.com/encode/django-rest-framework/tree/master/drf_comments/{{ filename }}">
+=======
+                  <a class="github" href="https://github.com/encode/django-rest-framework/tree/master/rest_framework/{{ filename }}">
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
                     <span class="label label-info">{{ filename }}</span>
                   </a>
                 {% endfor %}

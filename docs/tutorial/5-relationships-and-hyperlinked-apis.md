@@ -6,9 +6,15 @@ At the moment relationships within our API are represented by using primary keys
 
 Right now we have endpoints for 'snippets' and 'users', but we don't have a single entry point to our API.  To create one, we'll use a regular function-based view and the `@api_view` decorator we introduced earlier. In your `snippets/views.py` add:
 
+<<<<<<< HEAD
     from drf_comments.decorators import api_view
     from drf_comments.response import Response
     from drf_comments.reverse import reverse
+=======
+    from rest_framework.decorators import api_view
+    from rest_framework.response import Response
+    from rest_framework.reverse import reverse
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     @api_view(['GET'])
@@ -30,7 +36,11 @@ The other thing we need to consider when creating the code highlight view is tha
 
 Instead of using a concrete generic view, we'll use the base class for representing instances, and create our own `.get()` method.  In your `snippets/views.py` add:
 
+<<<<<<< HEAD
     from drf_comments import renderers
+=======
+    from rest_framework import renderers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class SnippetHighlight(generics.GenericAPIView):
         queryset = Snippet.objects.all()
@@ -106,7 +116,11 @@ If we're going to have a hyperlinked API, we need to make sure we name our URL p
 After adding all those names into our URLconf, our final `snippets/urls.py` file should look like this:
 
     from django.urls import path
+<<<<<<< HEAD
     from drf_comments.urlpatterns import format_suffix_patterns
+=======
+    from rest_framework.urlpatterns import format_suffix_patterns
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from snippets import views
 
     # API endpoints
@@ -136,7 +150,11 @@ The list views for users and code snippets could end up returning quite a lot of
 We can change the default list style to use pagination, by modifying our `tutorial/settings.py` file slightly. Add the following setting:
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_PAGINATION_CLASS': 'drf_comments.pagination.PageNumberPagination',
+=======
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         'PAGE_SIZE': 10
     }
 

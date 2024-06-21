@@ -1,6 +1,10 @@
 from django.http import QueryDict
 
+<<<<<<< HEAD
 from drf_comments import serializers
+=======
+from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class TestSimpleBoundField:
@@ -67,11 +71,19 @@ class TestSimpleBoundField:
         assert serializer['null_field'].as_form_field().value == ''
 
     def test_rendering_boolean_field(self):
+<<<<<<< HEAD
         from drf_comments.renderers import HTMLFormRenderer
 
         class ExampleSerializer(serializers.Serializer):
             bool_field = serializers.BooleanField(
                 style={'base_template': 'checkbox.html', 'template_pack': 'drf_comments/vertical'})
+=======
+        from rest_framework.renderers import HTMLFormRenderer
+
+        class ExampleSerializer(serializers.Serializer):
+            bool_field = serializers.BooleanField(
+                style={'base_template': 'checkbox.html', 'template_pack': 'rest_framework/vertical'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
         serializer = ExampleSerializer(data={'bool_field': True})
         assert serializer.is_valid()
@@ -148,7 +160,11 @@ class TestNestedBoundField:
 }'''
 
     def test_rendering_nested_fields_with_none_value(self):
+<<<<<<< HEAD
         from drf_comments.renderers import HTMLFormRenderer
+=======
+        from rest_framework.renderers import HTMLFormRenderer
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
         class Nested1(serializers.Serializer):
             text_field = serializers.CharField()
@@ -185,7 +201,11 @@ class TestNestedBoundField:
             assert rendered_packed == expected_packed
 
     def test_rendering_nested_fields_with_not_mappable_value(self):
+<<<<<<< HEAD
         from drf_comments.renderers import HTMLFormRenderer
+=======
+        from rest_framework.renderers import HTMLFormRenderer
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
         class Nested(serializers.Serializer):
             text_field = serializers.CharField()

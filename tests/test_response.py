@@ -4,6 +4,7 @@ import pytest
 from django.test import TestCase, override_settings
 from django.urls import include, path, re_path
 
+<<<<<<< HEAD
 from drf_comments import generics, routers, serializers, status, viewsets
 from drf_comments.parsers import JSONParser
 from drf_comments.renderers import (
@@ -11,6 +12,15 @@ from drf_comments.renderers import (
 )
 from drf_comments.response import Response
 from drf_comments.views import APIView
+=======
+from rest_framework import generics, routers, serializers, status, viewsets
+from rest_framework.parsers import JSONParser
+from rest_framework.renderers import (
+    BaseRenderer, BrowsableAPIRenderer, JSONRenderer
+)
+from rest_framework.response import Response
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 from tests.models import BasicModel
 
 
@@ -128,7 +138,11 @@ urlpatterns = [
     path('html1', HTMLView1.as_view()),
     path('html_new_model', HTMLNewModelView.as_view()),
     path('html_new_model_viewset', include(new_model_viewset_router.urls)),
+<<<<<<< HEAD
     path('restframework', include('drf_comments.urls', namespace='drf_comments'))
+=======
+    path('restframework', include('rest_framework.urls', namespace='rest_framework'))
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ]
 
 

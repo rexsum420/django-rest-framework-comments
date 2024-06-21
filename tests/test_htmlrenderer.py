@@ -6,10 +6,17 @@ from django.template import TemplateDoesNotExist, engines
 from django.test import TestCase, override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments import status
 from drf_comments.decorators import api_view, renderer_classes
 from drf_comments.renderers import TemplateHTMLRenderer
 from drf_comments.response import Response
+=======
+from rest_framework import status
+from rest_framework.decorators import api_view, renderer_classes
+from rest_framework.renderers import TemplateHTMLRenderer
+from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 @api_view(('GET',))

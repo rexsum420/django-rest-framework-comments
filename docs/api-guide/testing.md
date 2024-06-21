@@ -19,7 +19,11 @@ Extends [Django's existing `RequestFactory` class][requestfactory].
 
 The `APIRequestFactory` class supports an almost identical API to Django's standard `RequestFactory` class.  This means that the standard `.get()`, `.post()`, `.put()`, `.patch()`, `.delete()`, `.head()` and `.options()` methods are all available.
 
+<<<<<<< HEAD
     from drf_comments.test import APIRequestFactory
+=======
+    from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     # Using the standard RequestFactory API to create a form POST request
     factory = APIRequestFactory()
@@ -68,7 +72,11 @@ When testing views directly using a request factory, it's often convenient to be
 
 To forcibly authenticate a request, use the `force_authenticate()` method.
 
+<<<<<<< HEAD
     from drf_comments.test import force_authenticate
+=======
+    from rest_framework.test import force_authenticate
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     factory = APIRequestFactory()
     user = User.objects.get(username='olivia')
@@ -124,7 +132,11 @@ Extends [Django's existing `Client` class][client].
 
 The `APIClient` class supports the same request interface as Django's standard `Client` class.  This means that the standard `.get()`, `.post()`, `.put()`, `.patch()`, `.delete()`, `.head()` and `.options()` methods are all available.  For example:
 
+<<<<<<< HEAD
     from drf_comments.test import APIClient
+=======
+    from rest_framework.test import APIClient
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     client = APIClient()
     client.post('/notes/', {'title': 'new idea'}, format='json')
@@ -152,8 +164,13 @@ The `login` method is appropriate for testing APIs that use session authenticati
 
 The `credentials` method can be used to set headers that will then be included on all subsequent requests by the test client.
 
+<<<<<<< HEAD
     from drf_comments.authtoken.models import Token
     from drf_comments.test import APIClient
+=======
+    from rest_framework.authtoken.models import Token
+    from rest_framework.test import APIClient
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     # Include an appropriate `Authorization:` header on all requests.
     token = Token.objects.get(user__username='lauren')
@@ -204,7 +221,11 @@ live environment. (See "Live tests" below.)
 This exposes exactly the same interface as if you were using a requests session
 directly.
 
+<<<<<<< HEAD
     from drf_comments.test import RequestsClient
+=======
+    from rest_framework.test import RequestsClient
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     
     client = RequestsClient()
     response = client.get('http://testserver/users/')
@@ -311,8 +332,13 @@ REST framework includes the following test case classes, that mirror the existin
 You can use any of REST framework's test case classes as you would for the regular Django test case classes.  The `self.client` attribute will be an `APIClient` instance.
 
     from django.urls import reverse
+<<<<<<< HEAD
     from drf_comments import status
     from drf_comments.test import APITestCase
+=======
+    from rest_framework import status
+    from rest_framework.test import APITestCase
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from myproject.apps.core.models import Account
 
     class AccountTests(APITestCase):
@@ -336,7 +362,11 @@ REST framework also provides a test case class for isolating `urlpatterns` on a 
 ## Example
 
     from django.urls import include, path, reverse
+<<<<<<< HEAD
     from drf_comments.test import APITestCase, URLPatternsTestCase
+=======
+    from rest_framework.test import APITestCase, URLPatternsTestCase
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class AccountTests(APITestCase, URLPatternsTestCase):
@@ -403,9 +433,15 @@ For example, to add support for using `format='html'` in test requests, you migh
     REST_FRAMEWORK = {
         ...
         'TEST_REQUEST_RENDERER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.renderers.MultiPartRenderer',
             'drf_comments.renderers.JSONRenderer',
             'drf_comments.renderers.TemplateHTMLRenderer'
+=======
+            'rest_framework.renderers.MultiPartRenderer',
+            'rest_framework.renderers.JSONRenderer',
+            'rest_framework.renderers.TemplateHTMLRenderer'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ]
     }
 

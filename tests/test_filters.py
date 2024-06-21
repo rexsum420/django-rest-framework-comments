@@ -9,10 +9,17 @@ from django.db.models.functions import Concat, Upper
 from django.test import SimpleTestCase, TestCase
 from django.test.utils import override_settings
 
+<<<<<<< HEAD
 from drf_comments import filters, generics, serializers
 from drf_comments.compat import coreschema
 from drf_comments.exceptions import ValidationError
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework import filters, generics, serializers
+from rest_framework.compat import coreschema
+from rest_framework.exceptions import ValidationError
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

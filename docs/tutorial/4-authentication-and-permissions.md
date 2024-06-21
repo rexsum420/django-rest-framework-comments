@@ -123,7 +123,11 @@ REST framework includes a number of permission classes that we can use to restri
 
 First add the following import in the views module
 
+<<<<<<< HEAD
     from drf_comments import permissions
+=======
+    from rest_framework import permissions
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 Then, add the following property to **both** the `SnippetList` and `SnippetDetail` view classes.
 
@@ -142,7 +146,11 @@ Add the following import at the top of the file:
 And, at the end of the file, add a pattern to include the login and logout views for the browsable API.
 
     urlpatterns += [
+<<<<<<< HEAD
         path('api-auth/', include('drf_comments.urls')),
+=======
+        path('api-auth/', include('rest_framework.urls')),
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 The `'api-auth/'` part of pattern can actually be whatever URL you want to use.
@@ -159,7 +167,11 @@ To do that we're going to need to create a custom permission.
 
 In the snippets app, create a new file, `permissions.py`
 
+<<<<<<< HEAD
     from drf_comments import permissions
+=======
+    from rest_framework import permissions
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class IsOwnerOrReadOnly(permissions.BasePermission):

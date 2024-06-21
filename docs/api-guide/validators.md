@@ -68,7 +68,11 @@ It takes a single required argument, and an optional `messages` argument:
 
 This validator should be applied to *serializer fields*, like so:
 
+<<<<<<< HEAD
     from drf_comments.validators import UniqueValidator
+=======
+    from rest_framework.validators import UniqueValidator
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     slug = SlugField(
         max_length=100,
@@ -86,7 +90,11 @@ It has two required arguments, and a single optional `messages` argument:
 
 The validator should be applied to *serializer classes*, like so:
 
+<<<<<<< HEAD
     from drf_comments.validators import UniqueTogetherValidator
+=======
+    from rest_framework.validators import UniqueTogetherValidator
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleSerializer(serializers.Serializer):
         # ...
@@ -122,7 +130,11 @@ These validators can be used to enforce the `unique_for_date`, `unique_for_month
 
 The validator should be applied to *serializer classes*, like so:
 
+<<<<<<< HEAD
     from drf_comments.validators import UniqueForYearValidator
+=======
+    from rest_framework.validators import UniqueForYearValidator
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleSerializer(serializers.Serializer):
         # ...

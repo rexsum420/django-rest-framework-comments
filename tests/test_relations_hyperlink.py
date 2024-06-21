@@ -1,8 +1,13 @@
 from django.test import TestCase, override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments import serializers
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework import serializers
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 from tests.models import (
     ForeignKeySource, ForeignKeyTarget, ManyToManySource, ManyToManyTarget,
     NullableForeignKeySource, NullableOneToOneSource, OneToOneTarget

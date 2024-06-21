@@ -88,7 +88,11 @@ To route a `SchemaView`, use the `get_schema_view()` helper.
 In `urls.py`:
 
 ```python
+<<<<<<< HEAD
 from drf_comments.schemas import get_schema_view
+=======
+from rest_framework.schemas import get_schema_view
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 urlpatterns = [
     # ...
@@ -161,7 +165,11 @@ The `get_schema_view()` helper takes the following keyword arguments:
 **Schema-level customization**
 
 ```python
+<<<<<<< HEAD
 from drf_comments.schemas.openapi import SchemaGenerator
+=======
+from rest_framework.schemas.openapi import SchemaGenerator
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ```
 
 `SchemaGenerator` is a class that walks a list of routed URL patterns, requests
@@ -182,7 +190,11 @@ Arguments:
 * `urlconf`: A URL conf module name to use when generating the schema. Defaults to `settings.ROOT_URLCONF`.
 
 In order to customize the top-level schema, subclass
+<<<<<<< HEAD
 `drf_comments.schemas.openapi.SchemaGenerator` and provide your subclass
+=======
+`rest_framework.schemas.openapi.SchemaGenerator` and provide your subclass
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 as an argument to the `generateschema` command or `get_schema_view()` helper
 function.
 
@@ -213,7 +225,11 @@ class TOSSchemaGenerator(SchemaGenerator):
 **Per-View Customization**
 
 ```python
+<<<<<<< HEAD
 from drf_comments.schemas.openapi import AutoSchema
+=======
+from rest_framework.schemas.openapi import AutoSchema
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ```
 
 By default, view introspection is performed by an `AutoSchema` instance

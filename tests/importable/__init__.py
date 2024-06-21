@@ -3,7 +3,11 @@ This test "app" exists to ensure that parts of Django REST Framework can be
 imported/invoked before Django itself has been fully initialized.
 """
 
+<<<<<<< HEAD
 from drf_comments import compat, serializers  # noqa
+=======
+from rest_framework import compat, serializers  # noqa
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 # test initializing fields with lazy translations

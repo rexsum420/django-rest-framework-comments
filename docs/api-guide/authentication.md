@@ -41,18 +41,30 @@ The default authentication schemes may be set globally, using the `DEFAULT_AUTHE
 
     REST_FRAMEWORK = {
         'DEFAULT_AUTHENTICATION_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.authentication.BasicAuthentication',
             'drf_comments.authentication.SessionAuthentication',
+=======
+            'rest_framework.authentication.BasicAuthentication',
+            'rest_framework.authentication.SessionAuthentication',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ]
     }
 
 You can also set the authentication scheme on a per-view or per-viewset basis,
 using the `APIView` class-based views.
 
+<<<<<<< HEAD
     from drf_comments.authentication import SessionAuthentication, BasicAuthentication
     from drf_comments.permissions import IsAuthenticated
     from drf_comments.response import Response
     from drf_comments.views import APIView
+=======
+    from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+    from rest_framework.permissions import IsAuthenticated
+    from rest_framework.response import Response
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleView(APIView):
         authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -130,20 +142,36 @@ For an implementation which allows more than one token per user, has some tighte
 
 This authentication scheme uses a simple token-based HTTP Authentication scheme.  Token authentication is appropriate for client-server setups, such as native desktop and mobile clients.
 
+<<<<<<< HEAD
 To use the `TokenAuthentication` scheme you'll need to [configure the authentication classes](#setting-the-authentication-scheme) to include `TokenAuthentication`, and additionally include `drf_comments.authtoken` in your `INSTALLED_APPS` setting:
 
     INSTALLED_APPS = [
         ...
         'drf_comments.authtoken'
+=======
+To use the `TokenAuthentication` scheme you'll need to [configure the authentication classes](#setting-the-authentication-scheme) to include `TokenAuthentication`, and additionally include `rest_framework.authtoken` in your `INSTALLED_APPS` setting:
+
+    INSTALLED_APPS = [
+        ...
+        'rest_framework.authtoken'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 Make sure to run `manage.py migrate` after changing your settings.
 
+<<<<<<< HEAD
 The `drf_comments.authtoken` app provides Django database migrations.
 
 You'll also need to create tokens for your users.
 
     from drf_comments.authtoken.models import Token
+=======
+The `rest_framework.authtoken` app provides Django database migrations.
+
+You'll also need to create tokens for your users.
+
+    from rest_framework.authtoken.models import Token
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     token = Token.objects.create(user=...)
     print(token.key)
@@ -157,7 +185,11 @@ For clients to authenticate, the token key should be included in the `Authorizat
 If successfully authenticated, `TokenAuthentication` provides the following credentials.
 
 * `request.user` will be a Django `User` instance.
+<<<<<<< HEAD
 * `request.auth` will be a `drf_comments.authtoken.models.Token` instance.
+=======
+* `request.auth` will be a `rest_framework.authtoken.models.Token` instance.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 Unauthenticated responses that are denied permission will result in an `HTTP 401 Unauthorized` response with an appropriate WWW-Authenticate header.  For example:
 
@@ -182,7 +214,11 @@ If you want every user to have an automatically generated Token, you can simply 
     from django.conf import settings
     from django.db.models.signals import post_save
     from django.dispatch import receiver
+<<<<<<< HEAD
     from drf_comments.authtoken.models import Token
+=======
+    from rest_framework.authtoken.models import Token
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_auth_token(sender, instance=None, created=False, **kwargs):
@@ -194,7 +230,11 @@ Note that you'll want to ensure you place this code snippet in an installed `mod
 If you've already created some users, you can generate tokens for all existing users like this:
 
     from django.contrib.auth.models import User
+<<<<<<< HEAD
     from drf_comments.authtoken.models import Token
+=======
+    from rest_framework.authtoken.models import Token
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     for user in User.objects.all():
         Token.objects.get_or_create(user=user)
@@ -203,7 +243,11 @@ If you've already created some users, you can generate tokens for all existing u
 
 When using `TokenAuthentication`, you may want to provide a mechanism for clients to obtain a token given the username and password.  REST framework provides a built-in view to provide this behavior.  To use it, add the `obtain_auth_token` view to your URLconf:
 
+<<<<<<< HEAD
     from drf_comments.authtoken import views
+=======
+    from rest_framework.authtoken import views
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     urlpatterns += [
         path('api-token-auth/', views.obtain_auth_token)
     ]
@@ -223,9 +267,15 @@ If you need a customized version of the `obtain_auth_token` view, you can do so 
 
 For example, you may return additional user information beyond the `token` value:
 
+<<<<<<< HEAD
     from drf_comments.authtoken.views import ObtainAuthToken
     from drf_comments.authtoken.models import Token
     from drf_comments.response import Response
+=======
+    from rest_framework.authtoken.views import ObtainAuthToken
+    from rest_framework.authtoken.models import Token
+    from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CustomAuthToken(ObtainAuthToken):
 
@@ -254,7 +304,11 @@ It is also possible to create Tokens manually through the admin interface. In ca
 
 `your_app/admin.py`:
 
+<<<<<<< HEAD
     from drf_comments.authtoken.admin import TokenAdmin
+=======
+    from rest_framework.authtoken.admin import TokenAdmin
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     TokenAdmin.raw_id_fields = ['user']
 
@@ -339,8 +393,13 @@ If the `.authenticate_header()` method is not overridden, the authentication sch
 The following example will authenticate any incoming request as the user given by the username in a custom request header named 'X-USERNAME'.
 
     from django.contrib.auth.models import User
+<<<<<<< HEAD
     from drf_comments import authentication
     from drf_comments import exceptions
+=======
+    from rest_framework import authentication
+    from rest_framework import exceptions
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleAuthentication(authentication.BaseAuthentication):
         def authenticate(self, request):
@@ -384,7 +443,11 @@ Add the package to your `INSTALLED_APPS` and modify your REST framework settings
 
     REST_FRAMEWORK = {
         'DEFAULT_AUTHENTICATION_CLASSES': [
+<<<<<<< HEAD
             'oauth2_provider.contrib.drf_comments.OAuth2Authentication',
+=======
+            'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ]
     }
 

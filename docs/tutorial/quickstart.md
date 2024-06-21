@@ -65,7 +65,11 @@ Once you've set up a database and the initial user is created and ready to go, o
 First up we're going to define some serializers. Let's create a new module named `tutorial/quickstart/serializers.py` that we'll use for our data representations.
 
     from django.contrib.auth.models import Group, User
+<<<<<<< HEAD
     from drf_comments import serializers
+=======
+    from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -86,7 +90,11 @@ Notice that we're using hyperlinked relations in this case with `HyperlinkedMode
 Right, we'd better write some views then.  Open `tutorial/quickstart/views.py` and get typing.
 
     from django.contrib.auth.models import Group, User
+<<<<<<< HEAD
     from drf_comments import permissions, viewsets
+=======
+    from rest_framework import permissions, viewsets
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     from tutorial.quickstart.serializers import GroupSerializer, UserSerializer
 
@@ -117,7 +125,11 @@ We can easily break these down into individual views if we need to, but using vi
 Okay, now let's wire up the API URLs.  On to `tutorial/urls.py`...
 
     from django.urls import include, path
+<<<<<<< HEAD
     from drf_comments import routers
+=======
+    from rest_framework import routers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     from tutorial.quickstart import views
 
@@ -129,7 +141,11 @@ Okay, now let's wire up the API URLs.  On to `tutorial/urls.py`...
     # Additionally, we include login URLs for the browsable API.
     urlpatterns = [
         path('', include(router.urls)),
+<<<<<<< HEAD
         path('api-auth/', include('drf_comments.urls', namespace='drf_comments'))
+=======
+        path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 Because we're using viewsets instead of views, we can automatically generate the URL conf for our API, by simply registering the viewsets with a router class.
@@ -142,17 +158,29 @@ Finally, we're including default login and logout views for use with the browsab
 Pagination allows you to control how many objects per page are returned. To enable it add the following lines to `tutorial/settings.py`
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_PAGINATION_CLASS': 'drf_comments.pagination.PageNumberPagination',
+=======
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         'PAGE_SIZE': 10
     }
 
 ## Settings
 
+<<<<<<< HEAD
 Add `'drf_comments'` to `INSTALLED_APPS`. The settings module will be in `tutorial/settings.py`
 
     INSTALLED_APPS = [
         ...
         'drf_comments',
+=======
+Add `'rest_framework'` to `INSTALLED_APPS`. The settings module will be in `tutorial/settings.py`
+
+    INSTALLED_APPS = [
+        ...
+        'rest_framework',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 Okay, we're done.

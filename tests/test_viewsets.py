@@ -5,12 +5,21 @@ from django.db import models
 from django.test import TestCase, override_settings
 from django.urls import include, path
 
+<<<<<<< HEAD
 from drf_comments import status
 from drf_comments.decorators import action
 from drf_comments.response import Response
 from drf_comments.routers import SimpleRouter
 from drf_comments.test import APIRequestFactory
 from drf_comments.viewsets import GenericViewSet
+=======
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.routers import SimpleRouter
+from rest_framework.test import APIRequestFactory
+from rest_framework.viewsets import GenericViewSet
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

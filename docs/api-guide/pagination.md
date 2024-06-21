@@ -27,7 +27,11 @@ Pagination can be turned off by setting the pagination class to `None`.
 The pagination style may be set globally, using the `DEFAULT_PAGINATION_CLASS` and `PAGE_SIZE` setting keys. For example, to use the built-in limit/offset pagination, you would do something like this:
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_PAGINATION_CLASS': 'drf_comments.pagination.LimitOffsetPagination',
+=======
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         'PAGE_SIZE': 100
     }
 
@@ -91,7 +95,11 @@ This pagination style accepts a single number page number in the request query p
 To enable the `PageNumberPagination` style globally, use the following configuration, and set the `PAGE_SIZE` as desired:
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_PAGINATION_CLASS': 'drf_comments.pagination.PageNumberPagination',
+=======
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         'PAGE_SIZE': 100
     }
 
@@ -109,7 +117,11 @@ To set these attributes you should override the `PageNumberPagination` class, an
 * `page_size_query_param` - If set, this is a string value indicating the name of a query parameter that allows the client to set the page size on a per-request basis. Defaults to `None`, indicating that the client may not control the requested page size.
 * `max_page_size` - If set, this is a numeric value indicating the maximum allowable requested page size. This attribute is only valid if `page_size_query_param` is also set.
 * `last_page_strings` - A list or tuple of string values indicating values that may be used with the `page_query_param` to request the final page in the set. Defaults to `('last',)`
+<<<<<<< HEAD
 * `template` - The name of a template to use when rendering pagination controls in the browsable API. May be overridden to modify the rendering style, or set to `None` to disable HTML pagination controls completely. Defaults to `"drf_comments/pagination/numbers.html"`.
+=======
+* `template` - The name of a template to use when rendering pagination controls in the browsable API. May be overridden to modify the rendering style, or set to `None` to disable HTML pagination controls completely. Defaults to `"rest_framework/pagination/numbers.html"`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ---
 
@@ -139,7 +151,11 @@ This pagination style mirrors the syntax used when looking up multiple database 
 To enable the `LimitOffsetPagination` style globally, use the following configuration:
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_PAGINATION_CLASS': 'drf_comments.pagination.LimitOffsetPagination'
+=======
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     }
 
 Optionally, you may also set a `PAGE_SIZE` key. If the `PAGE_SIZE` parameter is also used then the `limit` query parameter will be optional, and may be omitted by the client.
@@ -156,7 +172,11 @@ To set these attributes you should override the `LimitOffsetPagination` class, a
 * `limit_query_param` - A string value indicating the name of the "limit" query parameter. Defaults to `'limit'`.
 * `offset_query_param` - A string value indicating the name of the "offset" query parameter. Defaults to `'offset'`.
 * `max_limit` - If set this is a numeric value indicating the maximum allowable limit that may be requested by the client. Defaults to `None`.
+<<<<<<< HEAD
 * `template` - The name of a template to use when rendering pagination controls in the browsable API. May be overridden to modify the rendering style, or set to `None` to disable HTML pagination controls completely. Defaults to `"drf_comments/pagination/numbers.html"`.
+=======
+* `template` - The name of a template to use when rendering pagination controls in the browsable API. May be overridden to modify the rendering style, or set to `None` to disable HTML pagination controls completely. Defaults to `"rest_framework/pagination/numbers.html"`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ---
 
@@ -197,7 +217,11 @@ For more technical details on the implementation we use for cursor pagination, t
 To enable the `CursorPagination` style globally, use the following configuration, modifying the `PAGE_SIZE` as desired:
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_PAGINATION_CLASS': 'drf_comments.pagination.CursorPagination',
+=======
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         'PAGE_SIZE': 100
     }
 
@@ -212,7 +236,11 @@ To set these attributes you should override the `CursorPagination` class, and th
 * `page_size` = A numeric value indicating the page size. If set, this overrides the `PAGE_SIZE` setting. Defaults to the same value as the `PAGE_SIZE` settings key.
 * `cursor_query_param` = A string value indicating the name of the "cursor" query parameter. Defaults to `'cursor'`.
 * `ordering` = This should be a string, or list of strings, indicating the field against which the cursor based pagination will be applied. For example: `ordering = 'slug'`. Defaults to `-created`. This value may also be overridden by using `OrderingFilter` on the view.
+<<<<<<< HEAD
 * `template` = The name of a template to use when rendering pagination controls in the browsable API. May be overridden to modify the rendering style, or set to `None` to disable HTML pagination controls completely. Defaults to `"drf_comments/pagination/previous_and_next.html"`.
+=======
+* `template` = The name of a template to use when rendering pagination controls in the browsable API. May be overridden to modify the rendering style, or set to `None` to disable HTML pagination controls completely. Defaults to `"rest_framework/pagination/previous_and_next.html"`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ---
 
@@ -274,8 +302,13 @@ By default using the pagination classes will cause HTML pagination controls to b
 
 You can override the templates that render the HTML pagination controls. The two built-in styles are:
 
+<<<<<<< HEAD
 * `drf_comments/pagination/numbers.html`
 * `drf_comments/pagination/previous_and_next.html`
+=======
+* `rest_framework/pagination/numbers.html`
+* `rest_framework/pagination/previous_and_next.html`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 Providing a template with either of these paths in a global template directory will override the default rendering for the relevant pagination classes.
 

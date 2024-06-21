@@ -33,7 +33,11 @@ We'll declare a serializer that we can use to serialize and deserialize data tha
 
 Declaring a serializer looks very similar to declaring a form:
 
+<<<<<<< HEAD
     from drf_comments import serializers
+=======
+    from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CommentSerializer(serializers.Serializer):
         email = serializers.EmailField()
@@ -50,7 +54,11 @@ We can now use `CommentSerializer` to serialize a comment, or list of comments. 
 
 At this point we've translated the model instance into Python native datatypes.  To finalise the serialization process we render the data into `json`.
 
+<<<<<<< HEAD
     from drf_comments.renderers import JSONRenderer
+=======
+    from rest_framework.renderers import JSONRenderer
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     json = JSONRenderer().render(serializer.data)
     json
@@ -61,7 +69,11 @@ At this point we've translated the model instance into Python native datatypes. 
 Deserialization is similar. First we parse a stream into Python native datatypes...
 
     import io
+<<<<<<< HEAD
     from drf_comments.parsers import JSONParser
+=======
+    from rest_framework.parsers import JSONParser
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     stream = io.BytesIO(json)
     data = JSONParser().parse(stream)
@@ -178,7 +190,11 @@ These methods take a single argument, which is the field value that requires val
 
 Your `validate_<field_name>` methods should return the validated value or raise a `serializers.ValidationError`.  For example:
 
+<<<<<<< HEAD
     from drf_comments import serializers
+=======
+    from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class BlogPostSerializer(serializers.Serializer):
         title = serializers.CharField(max_length=100)
@@ -202,7 +218,11 @@ Your `validate_<field_name>` methods should return the validated value or raise 
 
 To do any other validation that requires access to multiple fields, add a method called `.validate()` to your `Serializer` subclass.  This method takes a single argument, which is a dictionary of field values.  It should raise a `serializers.ValidationError` if necessary, or just return the validated values.  For example:
 
+<<<<<<< HEAD
     from drf_comments import serializers
+=======
+    from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class EventSerializer(serializers.Serializer):
         description = serializers.CharField(max_length=100)

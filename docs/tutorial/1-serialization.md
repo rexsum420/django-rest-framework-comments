@@ -40,11 +40,19 @@ Once that's done we can create an app that we'll use to create a simple Web API.
 
     python manage.py startapp snippets
 
+<<<<<<< HEAD
 We'll need to add our new `snippets` app and the `drf_comments` app to `INSTALLED_APPS`. Let's edit the `tutorial/settings.py` file:
 
     INSTALLED_APPS = [
         ...
         'drf_comments',
+=======
+We'll need to add our new `snippets` app and the `rest_framework` app to `INSTALLED_APPS`. Let's edit the `tutorial/settings.py` file:
+
+    INSTALLED_APPS = [
+        ...
+        'rest_framework',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         'snippets',
     ]
 
@@ -83,7 +91,11 @@ We'll also need to create an initial migration for our snippet model, and sync t
 
 The first thing we need to get started on our Web API is to provide a way of serializing and deserializing the snippet instances into representations such as `json`.  We can do this by declaring serializers that work very similar to Django's forms.  Create a file in the `snippets` directory named `serializers.py` and add the following.
 
+<<<<<<< HEAD
     from drf_comments import serializers
+=======
+    from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
 
 
@@ -131,8 +143,13 @@ Okay, once we've got a few imports out of the way, let's create a couple of code
 
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
+<<<<<<< HEAD
     from drf_comments.renderers import JSONRenderer
     from drf_comments.parsers import JSONParser
+=======
+    from rest_framework.renderers import JSONRenderer
+    from rest_framework.parsers import JSONParser
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     snippet = Snippet(code='foo = "bar"\n')
     snippet.save()
@@ -218,7 +235,11 @@ Edit the `snippets/views.py` file, and add the following.
 
     from django.http import HttpResponse, JsonResponse
     from django.views.decorators.csrf import csrf_exempt
+<<<<<<< HEAD
     from drf_comments.parsers import JSONParser
+=======
+    from rest_framework.parsers import JSONParser
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
 

@@ -8,6 +8,7 @@ from django.urls import path
 from django.utils.safestring import SafeString
 from django.utils.translation import gettext_lazy as _
 
+<<<<<<< HEAD
 from drf_comments import filters, generics, pagination, routers, serializers
 from drf_comments.authtoken.views import obtain_auth_token
 from drf_comments.compat import uritemplate
@@ -18,6 +19,18 @@ from drf_comments.renderers import (
 )
 from drf_comments.request import Request
 from drf_comments.schemas.openapi import AutoSchema, SchemaGenerator
+=======
+from rest_framework import filters, generics, pagination, routers, serializers
+from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.compat import uritemplate
+from rest_framework.parsers import JSONParser, MultiPartParser
+from rest_framework.renderers import (
+    BaseRenderer, BrowsableAPIRenderer, JSONOpenAPIRenderer, JSONRenderer,
+    OpenAPIRenderer
+)
+from rest_framework.request import Request
+from rest_framework.schemas.openapi import AutoSchema, SchemaGenerator
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 from ..models import BasicModel
 from . import views
@@ -1137,7 +1150,11 @@ class TestOperationIntrospection(TestCase):
 
 
 @pytest.mark.skipif(uritemplate is None, reason='uritemplate not installed.')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.openapi.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.openapi.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestGenerator(TestCase):
 
     def test_override_settings(self):

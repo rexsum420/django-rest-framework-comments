@@ -7,12 +7,21 @@ from django.contrib.auth.models import User
 from django.core.management import CommandError, call_command
 from django.test import TestCase, modify_settings
 
+<<<<<<< HEAD
 from drf_comments.authtoken.admin import TokenAdmin
 from drf_comments.authtoken.management.commands.drf_create_token import \
     Command as AuthTokenCommand
 from drf_comments.authtoken.models import Token
 from drf_comments.authtoken.serializers import AuthTokenSerializer
 from drf_comments.exceptions import ValidationError
+=======
+from rest_framework.authtoken.admin import TokenAdmin
+from rest_framework.authtoken.management.commands.drf_create_token import \
+    Command as AuthTokenCommand
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+from rest_framework.exceptions import ValidationError
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class AuthTokenTests(TestCase):
@@ -23,12 +32,21 @@ class AuthTokenTests(TestCase):
         self.token = Token.objects.create(key='test token', user=self.user)
 
     def test_authtoken_can_be_imported_when_not_included_in_installed_apps(self):
+<<<<<<< HEAD
         import drf_comments.authtoken.models
         with modify_settings(INSTALLED_APPS={'remove': 'drf_comments.authtoken'}):
             importlib.reload(drf_comments.authtoken.models)
         # Set the proxy and abstract properties back to the version,
         # where authtoken is among INSTALLED_APPS.
         importlib.reload(drf_comments.authtoken.models)
+=======
+        import rest_framework.authtoken.models
+        with modify_settings(INSTALLED_APPS={'remove': 'rest_framework.authtoken'}):
+            importlib.reload(rest_framework.authtoken.models)
+        # Set the proxy and abstract properties back to the version,
+        # where authtoken is among INSTALLED_APPS.
+        importlib.reload(rest_framework.authtoken.models)
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     def test_model_admin_displayed_fields(self):
         mock_request = object()

@@ -6,6 +6,7 @@ from django.http import Http404
 from django.test import TestCase, override_settings
 from django.urls import include, path
 
+<<<<<<< HEAD
 from drf_comments import (
     RemovedInDRF317Warning, filters, generics, pagination, permissions,
     serializers
@@ -31,6 +32,33 @@ from drf_comments.test import APIClient, APIRequestFactory
 from drf_comments.utils import formatting
 from drf_comments.views import APIView
 from drf_comments.viewsets import GenericViewSet, ModelViewSet
+=======
+from rest_framework import (
+    RemovedInDRF317Warning, filters, generics, pagination, permissions,
+    serializers
+)
+from rest_framework.compat import coreapi, coreschema
+from rest_framework.decorators import action, api_view, schema
+from rest_framework.filters import (
+    BaseFilterBackend, OrderingFilter, SearchFilter
+)
+from rest_framework.pagination import (
+    BasePagination, CursorPagination, LimitOffsetPagination,
+    PageNumberPagination
+)
+from rest_framework.request import Request
+from rest_framework.routers import DefaultRouter, SimpleRouter
+from rest_framework.schemas import (
+    AutoSchema, ManualSchema, SchemaGenerator, get_schema_view
+)
+from rest_framework.schemas.coreapi import field_to_schema, is_enabled
+from rest_framework.schemas.generators import EndpointEnumerator
+from rest_framework.schemas.utils import is_list_view
+from rest_framework.test import APIClient, APIRequestFactory
+from rest_framework.utils import formatting
+from rest_framework.views import APIView
+from rest_framework.viewsets import GenericViewSet, ModelViewSet
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 from ..models import BasicModel, ForeignKeySource, ManyToManySource
 from . import views
@@ -142,7 +170,11 @@ class ExampleViewSet(ModelViewSet):
         pass
 
 
+<<<<<<< HEAD
 with override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'}):
+=======
+with override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'}):
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     if coreapi:
         schema_view = get_schema_view(title='Example API')
     else:
@@ -158,7 +190,11 @@ urlpatterns = [
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(ROOT_URLCONF=__name__, REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(ROOT_URLCONF=__name__, REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestRouterGeneratedSchema(TestCase):
     def test_anonymous_request(self):
         client = APIClient()
@@ -410,7 +446,11 @@ class ExampleDetailView(APIView):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGenerator(TestCase):
     def setUp(self):
         self.patterns = [
@@ -463,7 +503,11 @@ class TestSchemaGenerator(TestCase):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGeneratorDjango2(TestCase):
     def setUp(self):
         self.patterns = [
@@ -516,7 +560,11 @@ class TestSchemaGeneratorDjango2(TestCase):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGeneratorNotAtRoot(TestCase):
     def setUp(self):
         self.patterns = [
@@ -570,7 +618,11 @@ class TestSchemaGeneratorNotAtRoot(TestCase):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGeneratorWithMethodLimitedViewSets(TestCase):
     def setUp(self):
         router = DefaultRouter()
@@ -635,7 +687,11 @@ class TestSchemaGeneratorWithMethodLimitedViewSets(TestCase):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGeneratorWithRestrictedViewSets(TestCase):
     def setUp(self):
         router = DefaultRouter()
@@ -682,7 +738,11 @@ class ForeignKeySourceView(generics.CreateAPIView):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGeneratorWithForeignKey(TestCase):
     def setUp(self):
         self.patterns = [
@@ -728,7 +788,11 @@ class ManyToManySourceView(generics.CreateAPIView):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGeneratorWithManyToMany(TestCase):
     def setUp(self):
         self.patterns = [
@@ -763,7 +827,11 @@ class TestSchemaGeneratorWithManyToMany(TestCase):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestSchemaGeneratorActionKeysViewSets(TestCase):
     def test_action_not_coerced_for_get_and_head(self):
         """
@@ -824,7 +892,11 @@ class TestSchemaGeneratorActionKeysViewSets(TestCase):
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class Test4605Regression(TestCase):
     def test_4605_regression(self):
         generator = SchemaGenerator()
@@ -840,7 +912,11 @@ class CustomViewInspector(AutoSchema):
     pass
 
 
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestAutoSchema(TestCase):
 
     def test_apiview_schema_descriptor(self):
@@ -1050,7 +1126,11 @@ class TestAutoSchema(TestCase):
             self.assertEqual(field_to_schema(case[0]), case[1])
 
 
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 def test_docstring_is_not_stripped_by_get_description():
     class ExampleDocstringAPIView(APIView):
         """
@@ -1087,7 +1167,11 @@ def test_docstring_is_not_stripped_by_get_description():
 
 
 # Views for SchemaGenerationExclusionTests
+<<<<<<< HEAD
 with override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'}):
+=======
+with override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'}):
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     class ExcludedAPIView(APIView):
         schema = None
 
@@ -1105,7 +1189,11 @@ with override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.sch
 
 
 @unittest.skipUnless(coreapi, 'coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class SchemaGenerationExclusionTests(TestCase):
     def setUp(self):
         self.patterns = [
@@ -1193,7 +1281,11 @@ naming_collisions_router.register(r'collision', NamingCollisionViewSet, basename
 
 
 @pytest.mark.skipif(not coreapi, reason='coreapi is not installed')
+<<<<<<< HEAD
 @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+@override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestURLNamingCollisions(TestCase):
     """
     Ref: https://github.com/encode/django-rest-framework/issues/4704

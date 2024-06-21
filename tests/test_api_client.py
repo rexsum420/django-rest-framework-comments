@@ -6,12 +6,21 @@ from django.http import HttpResponse
 from django.test import override_settings
 from django.urls import path, re_path
 
+<<<<<<< HEAD
 from drf_comments.compat import coreapi, coreschema
 from drf_comments.parsers import FileUploadParser
 from drf_comments.renderers import CoreJSONRenderer
 from drf_comments.response import Response
 from drf_comments.test import APITestCase, CoreAPIClient
 from drf_comments.views import APIView
+=======
+from rest_framework.compat import coreapi, coreschema
+from rest_framework.parsers import FileUploadParser
+from rest_framework.renderers import CoreJSONRenderer
+from rest_framework.response import Response
+from rest_framework.test import APITestCase, CoreAPIClient
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 def get_schema():

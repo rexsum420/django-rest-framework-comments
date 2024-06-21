@@ -65,7 +65,11 @@ The following template should be used for the description of the issue, and serv
         - [ ] `README` Python & Django versions
         - [ ] `docs` Python & Django versions
     - [ ] Update the translations from [transifex](https://www.django-rest-framework.org/topics/project-management/#translations).
+<<<<<<< HEAD
     - [ ] Ensure the pull request increments the version to `*.*.*` in [`restframework/__init__.py`](https://github.com/encode/django-rest-framework/blob/master/drf_comments/__init__.py).
+=======
+    - [ ] Ensure the pull request increments the version to `*.*.*` in [`restframework/__init__.py`](https://github.com/encode/django-rest-framework/blob/master/rest_framework/__init__.py).
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     - [ ] Ensure documentation validates
         - Build and serve docs `mkdocs serve`
         - Validate links `pylinkvalidate.py -P http://127.0.0.1:8000`
@@ -108,7 +112,11 @@ To use it you'll need a login to Transifex which has a password, and you'll need
 When any user visible strings are changed, they should be uploaded to Transifex so that the translators can start to translate them. To do this, just run:
 
     # 1. Update the source django.po file, which is the US English version.
+<<<<<<< HEAD
     cd drf_comments
+=======
+    cd rest_framework
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     django-admin makemessages -l en_US
     # 2. Push the source django.po file to Transifex.
     cd ..
@@ -128,7 +136,11 @@ When a translator has finished translating their work needs to be downloaded fro
 
     # 3. Pull the translated django.po files from Transifex.
     tx pull -a --minimum-perc 10
+<<<<<<< HEAD
     cd drf_comments
+=======
+    cd rest_framework
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     # 4. Compile the binary .mo files for all supported languages.
     django-admin compilemessages
 

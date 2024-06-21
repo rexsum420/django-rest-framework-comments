@@ -42,10 +42,17 @@ if __name__ == "__main__":
         else:
             sys.path.pop(0)
 
+<<<<<<< HEAD
             # import drf_comments before pytest re-adds the package root directory.
             import drf_comments
             package_dir = os.path.join(os.getcwd(), 'drf_comments')
             assert not drf_comments.__file__.startswith(package_dir)
+=======
+            # import rest_framework before pytest re-adds the package root directory.
+            import rest_framework
+            package_dir = os.path.join(os.getcwd(), 'rest_framework')
+            assert not rest_framework.__file__.startswith(package_dir)
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
         if first_arg.startswith('-'):
             # `runtests.py [flags]`

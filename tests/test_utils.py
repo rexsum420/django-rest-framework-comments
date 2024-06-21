@@ -3,6 +3,7 @@ from unittest import mock
 from django.test import TestCase, override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments.decorators import action
 from drf_comments.routers import SimpleRouter
 from drf_comments.serializers import ModelSerializer
@@ -13,6 +14,18 @@ from drf_comments.utils.model_meta import FieldInfo, RelationInfo
 from drf_comments.utils.urls import remove_query_param, replace_query_param
 from drf_comments.views import APIView
 from drf_comments.viewsets import ModelViewSet
+=======
+from rest_framework.decorators import action
+from rest_framework.routers import SimpleRouter
+from rest_framework.serializers import ModelSerializer
+from rest_framework.utils import json
+from rest_framework.utils.breadcrumbs import get_breadcrumbs
+from rest_framework.utils.formatting import lazy_format
+from rest_framework.utils.model_meta import FieldInfo, RelationInfo
+from rest_framework.utils.urls import remove_query_param, replace_query_param
+from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 from tests.models import BasicModel
 
 

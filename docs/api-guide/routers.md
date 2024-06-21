@@ -17,7 +17,11 @@ REST framework adds support for automatic URL routing to Django, and provides yo
 
 Here's an example of a simple URL conf, that uses `SimpleRouter`.
 
+<<<<<<< HEAD
     from drf_comments import routers
+=======
+    from rest_framework import routers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     router = routers.SimpleRouter()
     router.register(r'users', UserViewSet)
@@ -107,7 +111,11 @@ you may be better off **not** namespacing your Django REST Framework views when 
 A viewset may [mark extra actions for routing][route-decorators] by decorating a method with the `@action` decorator. These extra actions will be included in the generated routes. For example, given the `set_password` method on the `UserViewSet` class:
 
     from myapp.permissions import IsAdminOrIsSelf
+<<<<<<< HEAD
     from drf_comments.decorators import action
+=======
+    from rest_framework.decorators import action
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserViewSet(ModelViewSet):
         ...
@@ -127,7 +135,11 @@ If you don't want to use the defaults for either of these values, you can instea
 For example, if you want to change the URL for our custom action to `^users/{pk}/change-password/$`, you could write:
 
     from myapp.permissions import IsAdminOrIsSelf
+<<<<<<< HEAD
     from drf_comments.decorators import action
+=======
+    from rest_framework.decorators import action
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserViewSet(ModelViewSet):
         ...
@@ -244,7 +256,11 @@ You can also customize how the `@action` decorator is routed. Include the `Dynam
 
 The following example will only route to the `list` and `retrieve` actions, and does not use the trailing slash convention.
 
+<<<<<<< HEAD
     from drf_comments.routers import Route, DynamicRoute, SimpleRouter
+=======
+    from rest_framework.routers import Route, DynamicRoute, SimpleRouter
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CustomReadOnlyRouter(SimpleRouter):
         """

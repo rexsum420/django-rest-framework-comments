@@ -52,8 +52,13 @@ def pytest_configure(config):
             'django.contrib.sessions',
             'django.contrib.sites',
             'django.contrib.staticfiles',
+<<<<<<< HEAD
             'drf_comments',
             'drf_comments.authtoken',
+=======
+            'rest_framework',
+            'rest_framework.authtoken',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
             'tests.authentication',
             'tests.generic_relations',
             'tests.importable',
@@ -81,8 +86,13 @@ def pytest_configure(config):
 
     # Manifest storage will raise an exception if static files are not present (ie, a packaging failure).
     if config.getoption('--staticfiles'):
+<<<<<<< HEAD
         import drf_comments
         settings.STATIC_ROOT = os.path.join(os.path.dirname(drf_comments.__file__), 'static-root')
+=======
+        import rest_framework
+        settings.STATIC_ROOT = os.path.join(os.path.dirname(rest_framework.__file__), 'static-root')
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         backend = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
         settings.STORAGES['staticfiles']['BACKEND'] = backend
 

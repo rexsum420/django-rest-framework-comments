@@ -17,9 +17,15 @@ Here's an example of a view that returns a list of "Profile" instances, rendered
 **views.py**:
 
     from my_project.example.models import Profile
+<<<<<<< HEAD
     from drf_comments.renderers import TemplateHTMLRenderer
     from drf_comments.response import Response
     from drf_comments.views import APIView
+=======
+    from rest_framework.renderers import TemplateHTMLRenderer
+    from rest_framework.response import Response
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class ProfileList(APIView):
@@ -51,8 +57,13 @@ The following view demonstrates an example of using a serializer in a template f
 
     from django.shortcuts import get_object_or_404
     from my_project.example.models import Profile
+<<<<<<< HEAD
     from drf_comments.renderers import TemplateHTMLRenderer
     from drf_comments.views import APIView
+=======
+    from rest_framework.renderers import TemplateHTMLRenderer
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class ProfileDetail(APIView):
@@ -74,7 +85,11 @@ The following view demonstrates an example of using a serializer in a template f
 
 **profile_detail.html**:
 
+<<<<<<< HEAD
     {% load drf_comments %}
+=======
+    {% load rest_framework %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     <html><body>
 
@@ -118,19 +133,31 @@ Let's take a look at how to render each of the three available template packs. F
 
 ---
 
+<<<<<<< HEAD
 #### `drf_comments/vertical`
+=======
+#### `rest_framework/vertical`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 Presents form labels above their corresponding control inputs, using the standard Bootstrap layout.
 
 *This is the default template pack.*
 
+<<<<<<< HEAD
     {% load drf_comments %}
+=======
+    {% load rest_framework %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     ...
 
     <form action="{% url 'login' %}" method="post" novalidate>
         {% csrf_token %}
+<<<<<<< HEAD
         {% render_form serializer template_pack='drf_comments/vertical' %}
+=======
+        {% render_form serializer template_pack='rest_framework/vertical' %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         <button type="submit" class="btn btn-default">Sign in</button>
     </form>
 
@@ -138,13 +165,21 @@ Presents form labels above their corresponding control inputs, using the standar
 
 ---
 
+<<<<<<< HEAD
 #### `drf_comments/horizontal`
+=======
+#### `rest_framework/horizontal`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 Presents labels and controls alongside each other, using a 2/10 column split.
 
 *This is the form style used in the browsable API and admin renderers.*
 
+<<<<<<< HEAD
     {% load drf_comments %}
+=======
+    {% load rest_framework %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     ...
 
@@ -162,17 +197,29 @@ Presents labels and controls alongside each other, using a 2/10 column split.
 
 ---
 
+<<<<<<< HEAD
 #### `drf_comments/inline`
 
 A compact form style that presents all the controls inline.
 
     {% load drf_comments %}
+=======
+#### `rest_framework/inline`
+
+A compact form style that presents all the controls inline.
+
+    {% load rest_framework %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     ...
 
     <form class="form-inline" action="{% url 'login' %}" method="post" novalidate>
         {% csrf_token %}
+<<<<<<< HEAD
         {% render_form serializer template_pack='drf_comments/inline' %}
+=======
+        {% render_form serializer template_pack='rest_framework/inline' %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         <button type="submit" class="btn btn-default">Sign in</button>
     </form>
 

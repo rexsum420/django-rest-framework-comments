@@ -2,6 +2,7 @@ import pytest
 from django.test import override_settings
 from django.urls import ResolverMatch, include, path, re_path
 
+<<<<<<< HEAD
 from drf_comments import serializers, status, versioning
 from drf_comments.decorators import APIView
 from drf_comments.relations import PKOnlyObject
@@ -11,6 +12,17 @@ from drf_comments.test import (
     APIRequestFactory, APITestCase, URLPatternsTestCase
 )
 from drf_comments.versioning import NamespaceVersioning
+=======
+from rest_framework import serializers, status, versioning
+from rest_framework.decorators import APIView
+from rest_framework.relations import PKOnlyObject
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
+from rest_framework.test import (
+    APIRequestFactory, APITestCase, URLPatternsTestCase
+)
+from rest_framework.versioning import NamespaceVersioning
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class RequestVersionView(APIView):

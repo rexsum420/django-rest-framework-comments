@@ -2,7 +2,11 @@ from django.test import RequestFactory, TestCase
 from django.utils import translation
 from django.utils.translation import gettext_lazy as _
 
+<<<<<<< HEAD
 from drf_comments.exceptions import (
+=======
+from rest_framework.exceptions import (
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     APIException, ErrorDetail, Throttled, _get_error_details, bad_request,
     server_error
 )

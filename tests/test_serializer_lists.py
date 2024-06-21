@@ -4,8 +4,13 @@ import pytest
 from django.http import QueryDict
 from django.utils.datastructures import MultiValueDict
 
+<<<<<<< HEAD
 from drf_comments import serializers
 from drf_comments.exceptions import ErrorDetail
+=======
+from rest_framework import serializers
+from rest_framework.exceptions import ErrorDetail
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 from tests.models import (
     CustomManagerModel, NullableOneToOneSource, OneToOneTarget
 )

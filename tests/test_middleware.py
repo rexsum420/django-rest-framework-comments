@@ -3,12 +3,21 @@ from django.http import HttpRequest
 from django.test import override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments.authentication import TokenAuthentication
 from drf_comments.authtoken.models import Token
 from drf_comments.request import is_form_media_type
 from drf_comments.response import Response
 from drf_comments.test import APITestCase
 from drf_comments.views import APIView
+=======
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.models import Token
+from rest_framework.request import is_form_media_type
+from rest_framework.response import Response
+from rest_framework.test import APITestCase
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class PostView(APIView):

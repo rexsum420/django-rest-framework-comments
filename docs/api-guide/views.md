@@ -23,9 +23,15 @@ Using the `APIView` class is pretty much the same as using a regular `View` clas
 
 For example:
 
+<<<<<<< HEAD
     from drf_comments.views import APIView
     from drf_comments.response import Response
     from drf_comments import authentication, permissions
+=======
+    from rest_framework.views import APIView
+    from rest_framework.response import Response
+    from rest_framework import authentication, permissions
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from django.contrib.auth.models import User
 
     class ListUsers(APIView):
@@ -112,7 +118,11 @@ You won't typically need to override this method.
 
 Any exception thrown by the handler method will be passed to this method, which either returns a `Response` instance, or re-raises the exception.
 
+<<<<<<< HEAD
 The default implementation handles any subclass of `drf_comments.exceptions.APIException`, as well as Django's `Http404` and `PermissionDenied` exceptions, and returns an appropriate error response.
+=======
+The default implementation handles any subclass of `rest_framework.exceptions.APIException`, as well as Django's `Http404` and `PermissionDenied` exceptions, and returns an appropriate error response.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 If you need to customize the error responses your API returns you should subclass this method.
 
@@ -144,8 +154,13 @@ REST framework also allows you to work with regular function based views.  It pr
 
 The core of this functionality is the `api_view` decorator, which takes a list of HTTP methods that your view should respond to. For example, this is how you would write a very simple view that just manually returns some data:
 
+<<<<<<< HEAD
     from drf_comments.decorators import api_view
     from drf_comments.response import Response
+=======
+    from rest_framework.decorators import api_view
+    from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     @api_view()
     def hello_world(request):
@@ -166,8 +181,13 @@ By default only `GET` methods will be accepted. Other methods will respond with 
 
 To override the default settings, REST framework provides a set of additional decorators which can be added to your views.  These must come *after* (below) the `@api_view` decorator.  For example, to create a view that uses a [throttle][throttling] to ensure it can only be called once per day by a particular user, use the `@throttle_classes` decorator, passing a list of throttle classes:
 
+<<<<<<< HEAD
     from drf_comments.decorators import api_view, throttle_classes
     from drf_comments.throttling import UserRateThrottle
+=======
+    from rest_framework.decorators import api_view, throttle_classes
+    from rest_framework.throttling import UserRateThrottle
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class OncePerDayUserThrottle(UserRateThrottle):
         rate = '1/day'
@@ -196,8 +216,13 @@ To override the default schema generation for function based views you may use
 the `@schema` decorator. This must come *after* (below) the `@api_view`
 decorator. For example:
 
+<<<<<<< HEAD
     from drf_comments.decorators import api_view, schema
     from drf_comments.schemas import AutoSchema
+=======
+    from rest_framework.decorators import api_view, schema
+    from rest_framework.schemas import AutoSchema
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CustomAutoSchema(AutoSchema):
         def get_link(self, path, method, base_url):

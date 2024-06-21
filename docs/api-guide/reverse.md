@@ -30,8 +30,13 @@ Has the same behavior as [`django.urls.reverse`][reverse], except that it return
 
 You should **include the request as a keyword argument** to the function, for example:
 
+<<<<<<< HEAD
     from drf_comments.reverse import reverse
     from drf_comments.views import APIView
+=======
+    from rest_framework.reverse import reverse
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from django.utils.timezone import now
 
     class APIRootView(APIView):

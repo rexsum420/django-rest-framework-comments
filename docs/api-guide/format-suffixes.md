@@ -28,7 +28,11 @@ Arguments:
 
 Example:
 
+<<<<<<< HEAD
     from drf_comments.urlpatterns import format_suffix_patterns
+=======
+    from rest_framework.urlpatterns import format_suffix_patterns
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from blog import views
 
     urlpatterns = [

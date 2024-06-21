@@ -8,10 +8,17 @@ from django.urls import path
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_protect, ensure_csrf_cookie
 
+<<<<<<< HEAD
 from drf_comments.compat import requests
 from drf_comments.response import Response
 from drf_comments.test import APITestCase, RequestsClient
 from drf_comments.views import APIView
+=======
+from rest_framework.compat import requests
+from rest_framework.response import Response
+from rest_framework.test import APITestCase, RequestsClient
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class Root(APIView):

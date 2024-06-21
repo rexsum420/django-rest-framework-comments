@@ -2,6 +2,7 @@ import pytest
 from django.http import Http404
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments.negotiation import (
     BaseContentNegotiation, DefaultContentNegotiation
 )
@@ -9,6 +10,15 @@ from drf_comments.renderers import BaseRenderer
 from drf_comments.request import Request
 from drf_comments.test import APIRequestFactory
 from drf_comments.utils.mediatypes import _MediaType
+=======
+from rest_framework.negotiation import (
+    BaseContentNegotiation, DefaultContentNegotiation
+)
+from rest_framework.renderers import BaseRenderer
+from rest_framework.request import Request
+from rest_framework.test import APIRequestFactory
+from rest_framework.utils.mediatypes import _MediaType
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

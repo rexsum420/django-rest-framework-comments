@@ -7,12 +7,21 @@ from django.core.validators import (
 )
 from django.db import models
 
+<<<<<<< HEAD
 from drf_comments import generics, permissions, serializers
 from drf_comments.decorators import action
 from drf_comments.response import Response
 from drf_comments.schemas.openapi import AutoSchema
 from drf_comments.views import APIView
 from drf_comments.viewsets import GenericViewSet, ViewSet
+=======
+from rest_framework import generics, permissions, serializers
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.schemas.openapi import AutoSchema
+from rest_framework.views import APIView
+from rest_framework.viewsets import GenericViewSet, ViewSet
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class ExampleListView(APIView):

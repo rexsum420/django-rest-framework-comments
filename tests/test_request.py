@@ -16,6 +16,7 @@ from django.http.request import RawPostDataException
 from django.test import TestCase, override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments import status
 from drf_comments.authentication import SessionAuthentication
 from drf_comments.parsers import BaseParser, FormParser, MultiPartParser
@@ -23,6 +24,15 @@ from drf_comments.request import Request, WrappedAttributeError
 from drf_comments.response import Response
 from drf_comments.test import APIClient, APIRequestFactory
 from drf_comments.views import APIView
+=======
+from rest_framework import status
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.parsers import BaseParser, FormParser, MultiPartParser
+from rest_framework.request import Request, WrappedAttributeError
+from rest_framework.response import Response
+from rest_framework.test import APIClient, APIRequestFactory
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 
@@ -33,7 +43,11 @@ class TestInitializer(TestCase):
 
         message = (
             'The `request` argument must be an instance of '
+<<<<<<< HEAD
             '`django.http.HttpRequest`, not `drf_comments.request.Request`.'
+=======
+            '`django.http.HttpRequest`, not `rest_framework.request.Request`.'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         )
         with self.assertRaisesMessage(AssertionError, message):
             Request(request)
@@ -284,7 +298,11 @@ class TestHttpRequest(TestCase):
         http_request = factory.get('/path')
         request = Request(http_request)
 
+<<<<<<< HEAD
         assert repr(request) == "<drf_comments.request.Request: GET '/path'>"
+=======
+        assert repr(request) == "<rest_framework.request.Request: GET '/path'>"
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     def test_attribute_access_proxy(self):
         http_request = factory.get('/')

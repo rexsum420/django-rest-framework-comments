@@ -112,18 +112,30 @@ Install using `pip`, including any optional packages you want...
 
     git clone https://github.com/encode/django-rest-framework
 
+<<<<<<< HEAD
 Add `'drf_comments'` to your `INSTALLED_APPS` setting.
 
     INSTALLED_APPS = [
         ...
         'drf_comments',
+=======
+Add `'rest_framework'` to your `INSTALLED_APPS` setting.
+
+    INSTALLED_APPS = [
+        ...
+        'rest_framework',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 If you're intending to use the browsable API you'll probably also want to add REST framework's login and logout views.  Add the following to your root `urls.py` file.
 
     urlpatterns = [
         ...
+<<<<<<< HEAD
         path('api-auth/', include('drf_comments.urls'))
+=======
+        path('api-auth/', include('rest_framework.urls'))
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 Note that the URL path can be whatever you want.
@@ -140,18 +152,30 @@ Any global settings for a REST framework API are kept in a single configuration 
         # Use Django's standard `django.contrib.auth` permissions,
         # or allow read-only access for unauthenticated users.
         'DEFAULT_PERMISSION_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.permissions.DjangoModelPermissionsOrAnonReadOnly'
         ]
     }
 
 Don't forget to make sure you've also added `drf_comments` to your `INSTALLED_APPS`.
+=======
+            'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        ]
+    }
+
+Don't forget to make sure you've also added `rest_framework` to your `INSTALLED_APPS`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 We're ready to create our API now.
 Here's our project's root `urls.py` module:
 
     from django.urls import path, include
     from django.contrib.auth.models import User
+<<<<<<< HEAD
     from drf_comments import routers, serializers, viewsets
+=======
+    from rest_framework import routers, serializers, viewsets
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     # Serializers define the API representation.
     class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -172,7 +196,11 @@ Here's our project's root `urls.py` module:
     # Additionally, we include login URLs for the browsable API.
     urlpatterns = [
         path('', include(router.urls)),
+<<<<<<< HEAD
         path('api-auth/', include('drf_comments.urls', namespace='drf_comments'))
+=======
+        path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 You can now open the API in your browser at [http://127.0.0.1:8000/](http://127.0.0.1:8000/), and view your new 'users' API. If you use the login control in the top right corner you'll also be able to add, create and delete users from the system.

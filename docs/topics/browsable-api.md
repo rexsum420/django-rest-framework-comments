@@ -9,7 +9,11 @@ API may stand for Application *Programming* Interface, but humans have to be abl
 
 ## URLs
 
+<<<<<<< HEAD
 If you include fully-qualified URLs in your resource output, they will be 'urlized' and made clickable for easy browsing by humans.  The `drf_comments` package includes a [`reverse`][drfreverse] helper for this purpose.
+=======
+If you include fully-qualified URLs in your resource output, they will be 'urlized' and made clickable for easy browsing by humans.  The `rest_framework` package includes a [`reverse`][drfreverse] helper for this purpose.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ## Formats
 
@@ -17,12 +21,20 @@ By default, the API will return the format specified by the headers, which in th
 
 ## Authentication
 
+<<<<<<< HEAD
 To quickly add authentication to the browesable api, add a routes named `"login"` and `"logout"` under the namespace `"drf_comments"`. DRF provides default routes for this which you can add to your urlconf:
+=======
+To quickly add authentication to the browesable api, add a routes named `"login"` and `"logout"` under the namespace `"rest_framework"`. DRF provides default routes for this which you can add to your urlconf:
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ```python
 urlpatterns = [
     # ...
+<<<<<<< HEAD
     url(r"^api-auth/", include("drf_comments.urls", namespace="drf_comments"))
+=======
+    url(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework"))
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ]
 ```
 
@@ -31,11 +43,19 @@ urlpatterns = [
 
 The browsable API is built with [Twitter's Bootstrap][bootstrap] (v 3.4.1), making it easy to customize the look-and-feel.
 
+<<<<<<< HEAD
 To customize the default style, create a template called `drf_comments/api.html` that extends from `drf_comments/base.html`.  For example:
 
 **templates/drf_comments/api.html**
 
     {% extends "drf_comments/base.html" %}
+=======
+To customize the default style, create a template called `rest_framework/api.html` that extends from `rest_framework/base.html`.  For example:
+
+**templates/rest_framework/api.html**
+
+    {% extends "rest_framework/base.html" %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     ...  # Override blocks with required customizations
 
@@ -53,7 +73,11 @@ You can also change the navbar variant, which by default is `navbar-inverse`, us
 
 Full example:
 
+<<<<<<< HEAD
     {% extends "drf_comments/base.html" %}
+=======
+    {% extends "rest_framework/base.html" %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     {% block bootstrap_theme %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@3.4.1/flatly/bootstrap.min.css" type="text/css">
@@ -123,11 +147,19 @@ The browsable API makes use of the Bootstrap tooltips component.  Any element wi
 
 ### Login Template
 
+<<<<<<< HEAD
 To add branding and customize the look-and-feel of the login template, create a template called `login.html` and add it to your project, eg: `templates/drf_comments/login.html`.  The template should extend from `drf_comments/login_base.html`.
 
 You can add your site name or branding by including the branding block:
 
     {% extends "drf_comments/login_base.html" %}
+=======
+To add branding and customize the look-and-feel of the login template, create a template called `login.html` and add it to your project, eg: `templates/rest_framework/login.html`.  The template should extend from `rest_framework/login_base.html`.
+
+You can add your site name or branding by including the branding block:
+
+    {% extends "rest_framework/login_base.html" %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     {% block branding %}
         <h3 style="margin: 0 0 20px;">My Site Name</h3>

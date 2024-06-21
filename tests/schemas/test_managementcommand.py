@@ -8,10 +8,17 @@ from django.test import TestCase
 from django.test.utils import override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments.compat import coreapi, uritemplate, yaml
 from drf_comments.management.commands import generateschema
 from drf_comments.utils import formatting, json
 from drf_comments.views import APIView
+=======
+from rest_framework.compat import coreapi, uritemplate, yaml
+from rest_framework.management.commands import generateschema
+from rest_framework.utils import formatting, json
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class FooView(APIView):
@@ -46,7 +53,11 @@ class GenerateSchemaTests(TestCase):
         """Switching between CoreAPI & OpenAPI"""
         command = generateschema.Command()
         assert command.get_mode() == generateschema.OPENAPI_MODE
+<<<<<<< HEAD
         with override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'}):
+=======
+        with override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'}):
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
             assert command.get_mode() == generateschema.COREAPI_MODE
 
     @pytest.mark.skipif(yaml is None, reason='PyYAML is required.')
@@ -92,7 +103,11 @@ class GenerateSchemaTests(TestCase):
 
     @pytest.mark.skipif(yaml is None, reason='PyYAML is required.')
     @pytest.mark.skipif(coreapi is None, reason='coreapi is required.')
+<<<<<<< HEAD
     @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+    @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     def test_coreapi_renders_default_schema_with_custom_title_url_and_description(self):
         expected_out = """info:
                             description: Example description
@@ -115,7 +130,11 @@ class GenerateSchemaTests(TestCase):
         self.assertIn(formatting.dedent(expected_out), self.out.getvalue())
 
     @pytest.mark.skipif(coreapi is None, reason='coreapi is required.')
+<<<<<<< HEAD
     @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+    @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     def test_coreapi_renders_openapi_json_schema(self):
         expected_out = {
             "openapi": "3.0.0",
@@ -145,7 +164,11 @@ class GenerateSchemaTests(TestCase):
         self.assertDictEqual(out_json, expected_out)
 
     @pytest.mark.skipif(coreapi is None, reason='coreapi is required.')
+<<<<<<< HEAD
     @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'drf_comments.schemas.AutoSchema'})
+=======
+    @override_settings(REST_FRAMEWORK={'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.AutoSchema'})
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     def test_renders_corejson_schema(self):
         expected_out = """{"_type":"document","":{"list":{"_type":"link","url":"/","action":"get"}}}"""
         call_command('generateschema',

@@ -1,7 +1,11 @@
 from django.db import models
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments import serializers
+=======
+from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 from tests.models import RESTFrameworkModel
 # Models
 from tests.test_multitable_inheritance import ChildModel

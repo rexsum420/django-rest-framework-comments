@@ -7,9 +7,15 @@ from django import VERSION as django_version
 from django.db import DataError, models
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments import serializers
 from drf_comments.exceptions import ValidationError
 from drf_comments.validators import (
+=======
+from rest_framework import serializers
+from rest_framework.exceptions import ValidationError
+from rest_framework.validators import (
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     BaseUniqueForValidator, UniqueTogetherValidator, UniqueValidator, qs_exists
 )
 
@@ -464,7 +470,11 @@ class TestUniquenessTogetherValidation(TestCase):
         data = {"race_name": "Paris Marathon", "position": 1}
         serializer = UniquenessTogetherSerializer(data=data, instance=instance)
         with patch(
+<<<<<<< HEAD
             "drf_comments.validators.qs_exists"
+=======
+            "rest_framework.validators.qs_exists"
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ) as mock:
             assert serializer.is_valid()
             assert not mock.called

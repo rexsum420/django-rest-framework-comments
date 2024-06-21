@@ -2,9 +2,15 @@ from django.test import TestCase
 from django.test.utils import override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments import serializers
 from drf_comments.generics import ListCreateAPIView
 from drf_comments.renderers import BrowsableAPIRenderer
+=======
+from rest_framework import serializers
+from rest_framework.generics import ListCreateAPIView
+from rest_framework.renderers import BrowsableAPIRenderer
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class NestedSerializer(serializers.Serializer):

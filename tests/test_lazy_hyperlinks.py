@@ -2,9 +2,15 @@ from django.db import models
 from django.test import TestCase, override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments import serializers
 from drf_comments.renderers import JSONRenderer
 from drf_comments.templatetags.drf_comments import format_value
+=======
+from rest_framework import serializers
+from rest_framework.renderers import JSONRenderer
+from rest_framework.templatetags.rest_framework import format_value
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 str_called = False
 

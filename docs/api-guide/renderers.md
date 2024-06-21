@@ -25,8 +25,13 @@ The default set of renderers may be set globally, using the `DEFAULT_RENDERER_CL
 
     REST_FRAMEWORK = {
         'DEFAULT_RENDERER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.renderers.JSONRenderer',
             'drf_comments.renderers.BrowsableAPIRenderer',
+=======
+            'rest_framework.renderers.JSONRenderer',
+            'rest_framework.renderers.BrowsableAPIRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ]
     }
 
@@ -34,9 +39,15 @@ You can also set the renderers used for an individual view, or viewset,
 using the `APIView` class-based views.
 
     from django.contrib.auth.models import User
+<<<<<<< HEAD
     from drf_comments.renderers import JSONRenderer
     from drf_comments.response import Response
     from drf_comments.views import APIView
+=======
+    from rest_framework.renderers import JSONRenderer
+    from rest_framework.response import Response
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserCountView(APIView):
         """
@@ -182,7 +193,11 @@ This renderer will determine which other renderer would have been given highest 
 
 **.charset**: `utf-8`
 
+<<<<<<< HEAD
 **.template**: `'drf_comments/api.html'`
+=======
+**.template**: `'rest_framework/api.html'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 #### Customizing BrowsableAPIRenderer
 
@@ -217,7 +232,11 @@ Note that views that have nested or list serializers for their input won't work 
 
 **.charset**: `utf-8`
 
+<<<<<<< HEAD
 **.template**: `'drf_comments/admin.html'`
+=======
+**.template**: `'rest_framework/admin.html'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ## HTMLFormRenderer
 
@@ -225,7 +244,11 @@ Renders data returned by a serializer into an HTML form. The output of this rend
 
 This renderer is not intended to be used directly, but can instead be used in templates by passing a serializer instance to the `render_form` template tag.
 
+<<<<<<< HEAD
     {% load drf_comments %}
+=======
+    {% load rest_framework %}
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     <form action="/submit-report/" method="post">
         {% csrf_token %}
@@ -241,7 +264,11 @@ For more information see the [HTML & Forms][html-and-forms] documentation.
 
 **.charset**: `utf-8`
 
+<<<<<<< HEAD
 **.template**: `'drf_comments/horizontal/form.html'`
+=======
+**.template**: `'rest_framework/horizontal/form.html'`
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ## MultiPartRenderer
 
@@ -284,7 +311,11 @@ By default this will include the following keys: `view`, `request`, `response`, 
 The following is an example plaintext renderer that will return a response with the `data` parameter as the content of the response.
 
     from django.utils.encoding import smart_str
+<<<<<<< HEAD
     from drf_comments import renderers
+=======
+    from rest_framework import renderers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class PlainTextRenderer(renderers.BaseRenderer):
@@ -412,10 +443,17 @@ Modify your REST framework settings.
 
     REST_FRAMEWORK = {
         'DEFAULT_PARSER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments_yaml.parsers.YAMLParser',
         ],
         'DEFAULT_RENDERER_CLASSES': [
             'drf_comments_yaml.renderers.YAMLRenderer',
+=======
+            'rest_framework_yaml.parsers.YAMLParser',
+        ],
+        'DEFAULT_RENDERER_CLASSES': [
+            'rest_framework_yaml.renderers.YAMLRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ],
     }
 
@@ -433,10 +471,17 @@ Modify your REST framework settings.
 
     REST_FRAMEWORK = {
         'DEFAULT_PARSER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments_xml.parsers.XMLParser',
         ],
         'DEFAULT_RENDERER_CLASSES': [
             'drf_comments_xml.renderers.XMLRenderer',
+=======
+            'rest_framework_xml.parsers.XMLParser',
+        ],
+        'DEFAULT_RENDERER_CLASSES': [
+            'rest_framework_xml.renderers.XMLRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ],
     }
 
@@ -462,7 +507,11 @@ Modify your REST framework settings.
 
     REST_FRAMEWORK = {
         'DEFAULT_RENDERER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments_jsonp.renderers.JSONPRenderer',
+=======
+            'rest_framework_jsonp.renderers.JSONPRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ],
     }
 
@@ -486,15 +535,24 @@ Modify your REST framework settings.
         ...
 
         'DEFAULT_RENDERER_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.renderers.JSONRenderer',
             'drf_comments.renderers.BrowsableAPIRenderer',
+=======
+            'rest_framework.renderers.JSONRenderer',
+            'rest_framework.renderers.BrowsableAPIRenderer',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
             'drf_excel.renderers.XLSXRenderer',
         ],
     }
 
 To avoid having a file streamed without a filename (which the browser will often default to the filename "download", with no extension), we need to use a mixin to override the `Content-Disposition` header. If no filename is provided, it will default to `export.xlsx`. For example:
 
+<<<<<<< HEAD
     from drf_comments.viewsets import ReadOnlyModelViewSet
+=======
+    from rest_framework.viewsets import ReadOnlyModelViewSet
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from drf_excel.mixins import XLSXFileMixin
     from drf_excel.renderers import XLSXRenderer
 

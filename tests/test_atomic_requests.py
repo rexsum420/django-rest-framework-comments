@@ -5,11 +5,19 @@ from django.http import Http404
 from django.test import TestCase, TransactionTestCase, override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments import status
 from drf_comments.exceptions import APIException
 from drf_comments.response import Response
 from drf_comments.test import APIRequestFactory
 from drf_comments.views import APIView
+=======
+from rest_framework import status
+from rest_framework.exceptions import APIException
+from rest_framework.response import Response
+from rest_framework.test import APIRequestFactory
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 from tests.models import BasicModel
 
 factory = APIRequestFactory()

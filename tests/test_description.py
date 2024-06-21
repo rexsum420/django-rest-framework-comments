@@ -1,9 +1,15 @@
 import pytest
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments.compat import apply_markdown
 from drf_comments.utils.formatting import dedent
 from drf_comments.views import APIView
+=======
+from rest_framework.compat import apply_markdown
+from rest_framework.utils.formatting import dedent
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 # We check that docstrings get nicely un-indented.
 DESCRIPTION = """an example docstring

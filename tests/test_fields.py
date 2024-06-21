@@ -22,9 +22,15 @@ from django.http import QueryDict
 from django.test import TestCase, override_settings
 from django.utils.timezone import activate, deactivate, override
 
+<<<<<<< HEAD
 import drf_comments
 from drf_comments import exceptions, serializers
 from drf_comments.fields import (
+=======
+import rest_framework
+from rest_framework import exceptions, serializers
+from rest_framework.fields import (
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     BuiltinSignatureError, DjangoImageField, SkipField, empty,
     is_simple_callable
 )
@@ -1659,7 +1665,11 @@ class TestPytzNaiveDayLightSavingTimeTimeZoneDateTimeField(FieldValues):
         field = serializers.DateTimeField(default_timezone=MockTimezone())
 
 
+<<<<<<< HEAD
 @patch('drf_comments.utils.timezone.datetime_ambiguous', return_value=True)
+=======
+@patch('rest_framework.utils.timezone.datetime_ambiguous', return_value=True)
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 class TestNaiveDayLightSavingTimeTimeZoneDateTimeField(FieldValues):
     """
     Invalid values for `DateTimeField` with datetime in DST shift (non-existing or ambiguous) and timezone with DST.
@@ -2089,7 +2099,11 @@ class TestMultipleChoiceField(FieldValues):
         field.partial = False
         assert field.get_value(QueryDict('')) == []
         field.partial = True
+<<<<<<< HEAD
         assert field.get_value(QueryDict('')) == drf_comments.fields.empty
+=======
+        assert field.get_value(QueryDict('')) == rest_framework.fields.empty
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class TestEmptyMultipleChoiceField(FieldValues):

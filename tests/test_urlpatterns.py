@@ -4,8 +4,13 @@ from django.test import TestCase
 from django.urls import Resolver404, URLResolver, include, path, re_path
 from django.urls.resolvers import RegexPattern
 
+<<<<<<< HEAD
 from drf_comments.test import APIRequestFactory
 from drf_comments.urlpatterns import format_suffix_patterns
+=======
+from rest_framework.test import APIRequestFactory
+from rest_framework.urlpatterns import format_suffix_patterns
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 # A container class for test paths for the test case
 URLTestPath = namedtuple('URLTestPath', ['path', 'args', 'kwargs'])

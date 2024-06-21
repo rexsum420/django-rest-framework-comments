@@ -166,7 +166,11 @@ To submit new content, [open an issue][drf-create-issue] or [create a pull reque
 [pypi-register]: https://pypi.org/account/register/
 [semver]: https://semver.org/
 [tox-docs]: https://tox.readthedocs.io/en/latest/
+<<<<<<< HEAD
 [drf-compat]: https://github.com/encode/django-rest-framework/blob/master/drf_comments/compat.py
+=======
+[drf-compat]: https://github.com/encode/django-rest-framework/blob/master/rest_framework/compat.py
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 [rest-framework-grid]: https://www.djangopackages.com/grids/g/django-rest-framework/
 [drf-create-pr]: https://github.com/encode/django-rest-framework/compare
 [drf-create-issue]: https://github.com/encode/django-rest-framework/issues/new

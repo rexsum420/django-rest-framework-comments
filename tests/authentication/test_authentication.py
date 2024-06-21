@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.test import TestCase, override_settings
 from django.urls import include, path
 
+<<<<<<< HEAD
 from drf_comments import (
     HTTP_HEADER_ENCODING, exceptions, permissions, renderers, status
 )
@@ -19,6 +20,20 @@ from drf_comments.authtoken.views import obtain_auth_token
 from drf_comments.response import Response
 from drf_comments.test import APIClient, APIRequestFactory
 from drf_comments.views import APIView
+=======
+from rest_framework import (
+    HTTP_HEADER_ENCODING, exceptions, permissions, renderers, status
+)
+from rest_framework.authentication import (
+    BaseAuthentication, BasicAuthentication, RemoteUserAuthentication,
+    SessionAuthentication, TokenAuthentication
+)
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework.response import Response
+from rest_framework.test import APIClient, APIRequestFactory
+from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 from .models import CustomToken
 
@@ -74,7 +89,11 @@ urlpatterns = [
         )
     ),
     path('auth-token/', obtain_auth_token),
+<<<<<<< HEAD
     path('auth/', include('drf_comments.urls', namespace='drf_comments')),
+=======
+    path('auth/', include('rest_framework.urls', namespace='rest_framework')),
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ]
 
 
@@ -137,7 +156,11 @@ class BasicAuthTests(TestCase):
 
     def test_regression_handle_bad_base64_basic_auth_header(self):
         """Ensure POSTing JSON over basic auth with incorrectly padded Base64 string is handled correctly"""
+<<<<<<< HEAD
         # regression test for issue in 'drf_comments.authentication.BasicAuthentication.authenticate'
+=======
+        # regression test for issue in 'rest_framework.authentication.BasicAuthentication.authenticate'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         # https://github.com/encode/django-rest-framework/issues/4089
         auth = 'Basic =a='
         response = self.csrf_client.post(
@@ -567,7 +590,11 @@ class BasicAuthenticationUnitTests(TestCase):
             auth.authenticate_credentials('invalid id', 'invalid password')
 
     def test_basic_authentication_raises_error_if_user_not_active(self):
+<<<<<<< HEAD
         from drf_comments import authentication
+=======
+        from rest_framework import authentication
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
         class MockUser:
             is_active = False

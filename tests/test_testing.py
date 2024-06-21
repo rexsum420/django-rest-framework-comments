@@ -8,11 +8,19 @@ from django.shortcuts import redirect
 from django.test import TestCase, override_settings
 from django.urls import path
 
+<<<<<<< HEAD
 from drf_comments import fields, serializers
 from drf_comments.authtoken.models import Token
 from drf_comments.decorators import api_view
 from drf_comments.response import Response
 from drf_comments.test import (
+=======
+from rest_framework import fields, serializers
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.test import (
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     APIClient, APIRequestFactory, URLPatternsTestCase, force_authenticate
 )
 

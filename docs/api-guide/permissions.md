@@ -54,7 +54,11 @@ For example:
 ---
 
 **Note**: With the exception of `DjangoObjectPermissions`, the provided
+<<<<<<< HEAD
 permission classes in `drf_comments.permissions` **do not** implement the
+=======
+permission classes in `rest_framework.permissions` **do not** implement the
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 methods necessary to check object permissions.
 
 If you wish to use the provided permission classes in order to check object
@@ -78,22 +82,36 @@ The default permission policy may be set globally, using the `DEFAULT_PERMISSION
 
     REST_FRAMEWORK = {
         'DEFAULT_PERMISSION_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.permissions.IsAuthenticated',
+=======
+            'rest_framework.permissions.IsAuthenticated',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ]
     }
 
 If not specified, this setting defaults to allowing unrestricted access:
 
     'DEFAULT_PERMISSION_CLASSES': [
+<<<<<<< HEAD
        'drf_comments.permissions.AllowAny',
+=======
+       'rest_framework.permissions.AllowAny',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 
 You can also set the authentication policy on a per-view, or per-viewset basis,
 using the `APIView` class-based views.
 
+<<<<<<< HEAD
     from drf_comments.permissions import IsAuthenticated
     from drf_comments.response import Response
     from drf_comments.views import APIView
+=======
+    from rest_framework.permissions import IsAuthenticated
+    from rest_framework.response import Response
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleView(APIView):
         permission_classes = [IsAuthenticated]
@@ -106,9 +124,15 @@ using the `APIView` class-based views.
 
 Or, if you're using the `@api_view` decorator with function based views.
 
+<<<<<<< HEAD
     from drf_comments.decorators import api_view, permission_classes
     from drf_comments.permissions import IsAuthenticated
     from drf_comments.response import Response
+=======
+    from rest_framework.decorators import api_view, permission_classes
+    from rest_framework.permissions import IsAuthenticated
+    from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     @api_view(['GET'])
     @permission_classes([IsAuthenticated])
@@ -120,11 +144,19 @@ Or, if you're using the `@api_view` decorator with function based views.
 
 __Note:__ when you set new permission classes via the class attribute or decorators you're telling the view to ignore the default list set in the __settings.py__ file.
 
+<<<<<<< HEAD
 Provided they inherit from `drf_comments.permissions.BasePermission`, permissions can be composed using standard Python bitwise operators. For example, `IsAuthenticatedOrReadOnly` could be written:
 
     from drf_comments.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
     from drf_comments.response import Response
     from drf_comments.views import APIView
+=======
+Provided they inherit from `rest_framework.permissions.BasePermission`, permissions can be composed using standard Python bitwise operators. For example, `IsAuthenticatedOrReadOnly` could be written:
+
+    from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
+    from rest_framework.response import Response
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ReadOnly(BasePermission):
         def has_permission(self, request, view):
@@ -229,7 +261,11 @@ If you need to test if a request is a read operation or a write operation, you s
 
 Custom permissions will raise a `PermissionDenied` exception if the test fails. To change the error message associated with the exception, implement a `message` attribute directly on your custom permission. Otherwise the `default_detail` attribute from `PermissionDenied` will be used. Similarly, to change the code identifier associated with the exception, implement a `code` attribute directly on your custom permission - otherwise the `default_code` attribute from `PermissionDenied` will be used.
 
+<<<<<<< HEAD
     from drf_comments import permissions
+=======
+    from rest_framework import permissions
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CustomerAccessPermission(permissions.BasePermission):
         message = 'Adding customers not allowed.'
@@ -241,7 +277,11 @@ Custom permissions will raise a `PermissionDenied` exception if the test fails. 
 
 The following is an example of a permission class that checks the incoming request's IP address against a blocklist, and denies the request if the IP has been blocked.
 
+<<<<<<< HEAD
     from drf_comments import permissions
+=======
+    from rest_framework import permissions
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class BlocklistPermission(permissions.BasePermission):
         """

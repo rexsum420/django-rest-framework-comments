@@ -25,8 +25,13 @@ Let's define a simple viewset that can be used to list or retrieve all the users
     from django.contrib.auth.models import User
     from django.shortcuts import get_object_or_404
     from myapps.serializers import UserSerializer
+<<<<<<< HEAD
     from drf_comments import viewsets
     from drf_comments.response import Response
+=======
+    from rest_framework import viewsets
+    from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserViewSet(viewsets.ViewSet):
         """
@@ -51,7 +56,11 @@ If we need to, we can bind this viewset into two separate views, like so:
 Typically we wouldn't do this, but would instead register the viewset with a router, and allow the urlconf to be automatically generated.
 
     from myapp.views import UserViewSet
+<<<<<<< HEAD
     from drf_comments.routers import DefaultRouter
+=======
+    from rest_framework.routers import DefaultRouter
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     router = DefaultRouter()
     router.register(r'users', UserViewSet, basename='user')
@@ -135,9 +144,15 @@ If you have ad-hoc methods that should be routable, you can mark them as such wi
 A more complete example of extra actions:
 
     from django.contrib.auth.models import User
+<<<<<<< HEAD
     from drf_comments import status, viewsets
     from drf_comments.decorators import action
     from drf_comments.response import Response
+=======
+    from rest_framework import status, viewsets
+    from rest_framework.decorators import action
+    from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from myapp.serializers import UserSerializer, PasswordSerializer
 
     class UserViewSet(viewsets.ModelViewSet):
@@ -311,7 +326,11 @@ You may need to provide custom `ViewSet` classes that do not have the full set o
 
 To create a base viewset class that provides `create`, `list` and `retrieve` operations, inherit from `GenericViewSet`, and mixin the required actions:
 
+<<<<<<< HEAD
     from drf_comments import mixins, viewsets
+=======
+    from rest_framework import mixins, viewsets
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class CreateListRetrieveViewSet(mixins.CreateModelMixin,
                                     mixins.ListModelMixin,

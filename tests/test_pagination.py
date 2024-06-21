@@ -3,12 +3,21 @@ from django.core.paginator import Paginator as DjangoPaginator
 from django.db import models
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments import (
     exceptions, filters, generics, pagination, serializers, status
 )
 from drf_comments.pagination import PAGE_BREAK, PageLink
 from drf_comments.request import Request
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework import (
+    exceptions, filters, generics, pagination, serializers, status
+)
+from rest_framework.pagination import PAGE_BREAK, PageLink
+from rest_framework.request import Request
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 

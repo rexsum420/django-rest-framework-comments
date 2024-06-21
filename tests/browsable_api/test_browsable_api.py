@@ -1,8 +1,13 @@
 from django.contrib.auth.models import User
 from django.test import TestCase, override_settings
 
+<<<<<<< HEAD
 from drf_comments.permissions import IsAuthenticated
 from drf_comments.test import APIClient
+=======
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.test import APIClient
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 from .views import BasicModelWithUsersViewSet, OrganizationPermissions
 

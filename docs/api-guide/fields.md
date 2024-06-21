@@ -13,7 +13,11 @@ Serializer fields handle converting between primitive values and internal dataty
 
 ---
 
+<<<<<<< HEAD
 **Note:** The serializer fields are declared in `fields.py`, but by convention you should import them using `from drf_comments import serializers` and refer to fields as `serializers.<FieldName>`.
+=======
+**Note:** The serializer fields are declared in `fields.py`, but by convention you should import them using `from rest_framework import serializers` and refer to fields as `serializers.<FieldName>`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ---
 
@@ -113,7 +117,11 @@ A value that should be used for pre-populating the value of HTML form fields. Yo
 you may do with any regular Django `Field`:
 
     import datetime
+<<<<<<< HEAD
     from drf_comments import serializers
+=======
+    from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     class ExampleSerializer(serializers.Serializer):
         day = serializers.DateField(initial=datetime.date.today)
 
@@ -578,7 +586,11 @@ The serializer method referred to by the `method_name` argument should accept a 
 
     from django.contrib.auth.models import User
     from django.utils.timezone import now
+<<<<<<< HEAD
     from drf_comments import serializers
+=======
+    from rest_framework import serializers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserSerializer(serializers.ModelSerializer):
         days_since_joined = serializers.SerializerMethodField()

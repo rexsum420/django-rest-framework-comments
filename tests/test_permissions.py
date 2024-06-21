@@ -8,12 +8,21 @@ from django.db import models
 from django.test import TestCase
 from django.urls import ResolverMatch
 
+<<<<<<< HEAD
 from drf_comments import (
     HTTP_HEADER_ENCODING, authentication, generics, permissions, serializers,
     status, views
 )
 from drf_comments.routers import DefaultRouter
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework import (
+    HTTP_HEADER_ENCODING, authentication, generics, permissions, serializers,
+    status, views
+)
+from rest_framework.routers import DefaultRouter
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 from tests.models import BasicModel
 
 factory = APIRequestFactory()

@@ -21,9 +21,15 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie, vary_on_headers
 
+<<<<<<< HEAD
 from drf_comments.response import Response
 from drf_comments.views import APIView
 from drf_comments import viewsets
+=======
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import viewsets
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class UserViewSet(viewsets.ViewSet):
@@ -69,8 +75,13 @@ When using @api_view decorator, the Django-provided method-based cache decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
 
+<<<<<<< HEAD
 from drf_comments.decorators import api_view
 from drf_comments.response import Response
+=======
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 @cache_page(60 * 15)

@@ -9,12 +9,21 @@ from django.core.files.uploadhandler import (
 from django.http.request import RawPostDataException
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments.exceptions import ParseError
 from drf_comments.parsers import (
     FileUploadParser, FormParser, JSONParser, MultiPartParser
 )
 from drf_comments.request import Request
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework.exceptions import ParseError
+from rest_framework.parsers import (
+    FileUploadParser, FormParser, JSONParser, MultiPartParser
+)
+from rest_framework.request import Request
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class Form(forms.Form):

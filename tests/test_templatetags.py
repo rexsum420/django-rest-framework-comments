@@ -4,6 +4,7 @@ from django.template import Context, Template
 from django.test import TestCase
 from django.utils.html import urlize
 
+<<<<<<< HEAD
 from drf_comments.compat import coreapi, coreschema
 from drf_comments.relations import Hyperlink
 from drf_comments.templatetags import drf_comments
@@ -12,6 +13,16 @@ from drf_comments.templatetags.drf_comments import (
     format_value, get_pagination_html, schema_links
 )
 from drf_comments.test import APIRequestFactory
+=======
+from rest_framework.compat import coreapi, coreschema
+from rest_framework.relations import Hyperlink
+from rest_framework.templatetags import rest_framework
+from rest_framework.templatetags.rest_framework import (
+    add_nested_class, add_query_param, as_string, break_long_headers,
+    format_value, get_pagination_html, schema_links
+)
+from rest_framework.test import APIRequestFactory
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 factory = APIRequestFactory()
 
@@ -275,10 +286,17 @@ class Issue1386Tests(TestCase):
         def mock_smart_urlquote(url):
             raise ValueError
 
+<<<<<<< HEAD
         old = drf_comments.smart_urlquote
         drf_comments.smart_urlquote = mock_smart_urlquote
         assert drf_comments.smart_urlquote_wrapper('test') is None
         drf_comments.smart_urlquote = old
+=======
+        old = rest_framework.smart_urlquote
+        rest_framework.smart_urlquote = mock_smart_urlquote
+        assert rest_framework.smart_urlquote_wrapper('test') is None
+        rest_framework.smart_urlquote = old
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class URLizerTests(TestCase):
@@ -307,7 +325,11 @@ class URLizerTests(TestCase):
         """
         Test that HTML is correctly escaped in Browsable API views.
         """
+<<<<<<< HEAD
         template = Template("{% load drf_comments %}{{ content|urlize }}")
+=======
+        template = Template("{% load rest_framework %}{{ content|urlize }}")
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         rendered = template.render(Context({'content': '<script>alert()</script> http://example.com'}))
         assert rendered == '&lt;script&gt;alert()&lt;/script&gt;' \
                            ' <a href="http://example.com" rel="nofollow">http://example.com</a>'
@@ -316,7 +338,11 @@ class URLizerTests(TestCase):
         """
         Test if the autoescape value is getting passed to urlize filter.
         """
+<<<<<<< HEAD
         template = Template("{% load drf_comments %}"
+=======
+        template = Template("{% load rest_framework %}"
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
                             "{% autoescape off %}{{ content|urlize }}"
                             "{% endautoescape %}")
         rendered = template.render(Context({'content': '<b> "http://example.com" </b>'}))

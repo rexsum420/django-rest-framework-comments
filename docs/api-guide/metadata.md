@@ -49,7 +49,11 @@ Here's an example response that demonstrates the information that is returned by
 You can set the metadata class globally using the `'DEFAULT_METADATA_CLASS'` settings key:
 
     REST_FRAMEWORK = {
+<<<<<<< HEAD
         'DEFAULT_METADATA_CLASS': 'drf_comments.metadata.SimpleMetadata'
+=======
+        'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     }
 
 Or you can set the metadata class individually for a view:

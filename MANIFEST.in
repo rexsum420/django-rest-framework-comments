@@ -1,9 +1,15 @@
 include README.md
 include LICENSE.md
 recursive-include tests/ *
+<<<<<<< HEAD
 recursive-include drf_comments *.py
 recursive-include drf_comments/static *.js *.css *.map *.png *.ico *.eot *.svg *.ttf *.woff *.woff2
 recursive-include drf_comments/templates *.html schema.js
 recursive-include drf_comments/locale *.mo
+=======
+recursive-include rest_framework/static *.js *.css *.map *.png *.ico *.eot *.svg *.ttf *.woff *.woff2
+recursive-include rest_framework/templates *.html schema.js
+recursive-include rest_framework/locale *.mo
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 global-exclude __pycache__
 global-exclude *.py[co]

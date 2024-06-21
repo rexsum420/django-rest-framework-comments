@@ -36,8 +36,13 @@ The default throttling policy may be set globally, using the `DEFAULT_THROTTLE_C
 
     REST_FRAMEWORK = {
         'DEFAULT_THROTTLE_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.throttling.AnonRateThrottle',
             'drf_comments.throttling.UserRateThrottle'
+=======
+            'rest_framework.throttling.AnonRateThrottle',
+            'rest_framework.throttling.UserRateThrottle'
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ],
         'DEFAULT_THROTTLE_RATES': {
             'anon': '100/day',
@@ -50,9 +55,15 @@ The rate descriptions used in `DEFAULT_THROTTLE_RATES` may include `second`, `mi
 You can also set the throttling policy on a per-view or per-viewset basis,
 using the `APIView` class-based views.
 
+<<<<<<< HEAD
     from drf_comments.response import Response
     from drf_comments.throttling import UserRateThrottle
     from drf_comments.views import APIView
+=======
+    from rest_framework.response import Response
+    from rest_framework.throttling import UserRateThrottle
+    from rest_framework.views import APIView
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class ExampleView(APIView):
         throttle_classes = [UserRateThrottle]
@@ -185,7 +196,11 @@ For example, given the following views...
 
     REST_FRAMEWORK = {
         'DEFAULT_THROTTLE_CLASSES': [
+<<<<<<< HEAD
             'drf_comments.throttling.ScopedRateThrottle',
+=======
+            'rest_framework.throttling.ScopedRateThrottle',
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         ],
         'DEFAULT_THROTTLE_RATES': {
             'contacts': '1000/day',

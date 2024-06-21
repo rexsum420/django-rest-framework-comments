@@ -22,8 +22,13 @@ Typically when using the generic views, you'll override the view, and set severa
 
     from django.contrib.auth.models import User
     from myapp.serializers import UserSerializer
+<<<<<<< HEAD
     from drf_comments import generics
     from drf_comments.permissions import IsAdminUser
+=======
+    from rest_framework import generics
+    from rest_framework.permissions import IsAdminUser
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     class UserList(generics.ListCreateAPIView):
         queryset = User.objects.all()
@@ -72,7 +77,11 @@ The following attributes control the basic view behavior.
 
 The following attributes are used to control pagination when used with list views.
 
+<<<<<<< HEAD
 * `pagination_class` - The pagination class that should be used when paginating list results. Defaults to the same value as the `DEFAULT_PAGINATION_CLASS` setting, which is `'drf_comments.pagination.PageNumberPagination'`. Setting `pagination_class=None` will disable pagination on this view.
+=======
+* `pagination_class` - The pagination class that should be used when paginating list results. Defaults to the same value as the `DEFAULT_PAGINATION_CLASS` setting, which is `'rest_framework.pagination.PageNumberPagination'`. Setting `pagination_class=None` will disable pagination on this view.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 **Filtering**:
 
@@ -197,7 +206,11 @@ You won't typically need to override the following methods, although you might n
 
 The mixin classes provide the actions that are used to provide the basic view behavior.  Note that the mixin classes provide action methods rather than defining the handler methods, such as `.get()` and `.post()`, directly.  This allows for more flexible composition of behavior.
 
+<<<<<<< HEAD
 The mixin classes can be imported from `drf_comments.mixins`.
+=======
+The mixin classes can be imported from `rest_framework.mixins`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ## ListModelMixin
 
@@ -241,7 +254,11 @@ If an object is deleted this returns a `204 No Content` response, otherwise it w
 
 The following classes are the concrete generic views.  If you're using generic views this is normally the level you'll be working at unless you need heavily customized behavior.
 
+<<<<<<< HEAD
 The view classes can be imported from `drf_comments.generics`.
+=======
+The view classes can be imported from `rest_framework.generics`.
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 ## CreateAPIView
 

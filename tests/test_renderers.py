@@ -11,6 +11,7 @@ from django.urls import include, path, re_path
 from django.utils.safestring import SafeText
 from django.utils.translation import gettext_lazy as _
 
+<<<<<<< HEAD
 from drf_comments import permissions, serializers, status
 from drf_comments.compat import coreapi
 from drf_comments.decorators import action
@@ -26,6 +27,23 @@ from drf_comments.test import APIRequestFactory, URLPatternsTestCase
 from drf_comments.utils import json
 from drf_comments.views import APIView
 from drf_comments.viewsets import ViewSet
+=======
+from rest_framework import permissions, serializers, status
+from rest_framework.compat import coreapi
+from rest_framework.decorators import action
+from rest_framework.renderers import (
+    AdminRenderer, BaseRenderer, BrowsableAPIRenderer, DocumentationRenderer,
+    HTMLFormRenderer, JSONRenderer, SchemaJSRenderer, StaticHTMLRenderer
+)
+from rest_framework.request import Request
+from rest_framework.response import Response
+from rest_framework.routers import SimpleRouter
+from rest_framework.settings import api_settings
+from rest_framework.test import APIRequestFactory, URLPatternsTestCase
+from rest_framework.utils import json
+from rest_framework.views import APIView
+from rest_framework.viewsets import ViewSet
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 DUMMYSTATUS = status.HTTP_200_OK
 DUMMYCONTENT = 'dummycontent'
@@ -117,7 +135,11 @@ urlpatterns = [
     path('html', HTMLView.as_view()),
     path('html1', HTMLView1.as_view()),
     path('empty', EmptyGETView.as_view()),
+<<<<<<< HEAD
     path('api', include('drf_comments.urls', namespace='drf_comments'))
+=======
+    path('api', include('rest_framework.urls', namespace='rest_framework'))
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ]
 
 
@@ -903,7 +925,11 @@ class TestDocumentationRenderer(TestCase):
         assert '<h1>Data Endpoint API</h1>' in html
 
     def test_shell_code_example_rendering(self):
+<<<<<<< HEAD
         template = loader.get_template('drf_comments/docs/langs/shell.html')
+=======
+        template = loader.get_template('rest_framework/docs/langs/shell.html')
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
         context = {
             'document': coreapi.Document(url='https://api.example.org/'),
             'link_key': 'testcases > list',

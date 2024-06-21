@@ -12,7 +12,11 @@ Let's take our current set of views, and refactor them into view sets.
 
 First of all let's refactor our `UserList` and `UserDetail` classes into a single `UserViewSet` class. In the `snippets/views.py` file, we can remove the two view classes and replace them with a single ViewSet class:
 
+<<<<<<< HEAD
     from drf_comments import viewsets
+=======
+    from rest_framework import viewsets
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class UserViewSet(viewsets.ReadOnlyModelViewSet):
@@ -26,10 +30,17 @@ Here we've used the `ReadOnlyModelViewSet` class to automatically provide the de
 
 Next we're going to replace the `SnippetList`, `SnippetDetail` and `SnippetHighlight` view classes.  We can remove the three views, and again replace them with a single class.
 
+<<<<<<< HEAD
     from drf_comments import permissions
     from drf_comments import renderers
     from drf_comments.decorators import action
     from drf_comments.response import Response
+=======
+    from rest_framework import permissions
+    from rest_framework import renderers
+    from rest_framework.decorators import action
+    from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
     class SnippetViewSet(viewsets.ModelViewSet):
@@ -67,7 +78,11 @@ To see what's going on under the hood let's first explicitly create a set of vie
 
 In the `snippets/urls.py` file we bind our `ViewSet` classes into a set of concrete views.
 
+<<<<<<< HEAD
     from drf_comments import renderers
+=======
+    from rest_framework import renderers
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     from snippets.views import api_root, SnippetViewSet, UserViewSet
 
@@ -111,7 +126,11 @@ Because we're using `ViewSet` classes rather than `View` classes, we actually do
 Here's our re-wired `snippets/urls.py` file.
 
     from django.urls import path, include
+<<<<<<< HEAD
     from drf_comments.routers import DefaultRouter
+=======
+    from rest_framework.routers import DefaultRouter
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
     from snippets import views
 

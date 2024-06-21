@@ -3,9 +3,15 @@ from django.db import models
 from django.http import QueryDict
 from django.test import TestCase
 
+<<<<<<< HEAD
 from drf_comments import serializers
 from drf_comments.compat import postgres_fields
 from drf_comments.serializers import raise_errors_on_nested_writes
+=======
+from rest_framework import serializers
+from rest_framework.compat import postgres_fields
+from rest_framework.serializers import raise_errors_on_nested_writes
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 class TestNestedSerializer:

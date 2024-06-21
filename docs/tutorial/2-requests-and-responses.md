@@ -35,9 +35,15 @@ The wrappers also provide behavior such as returning `405 Method Not Allowed` re
 
 Okay, let's go ahead and start using these new components to refactor our views slightly.
 
+<<<<<<< HEAD
     from drf_comments import status
     from drf_comments.decorators import api_view
     from drf_comments.response import Response
+=======
+    from rest_framework import status
+    from rest_framework.decorators import api_view
+    from rest_framework.response import Response
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from snippets.models import Snippet
     from snippets.serializers import SnippetSerializer
 
@@ -107,7 +113,11 @@ and
 Now update the `snippets/urls.py` file slightly, to append a set of `format_suffix_patterns` in addition to the existing URLs.
 
     from django.urls import path
+<<<<<<< HEAD
     from drf_comments.urlpatterns import format_suffix_patterns
+=======
+    from rest_framework.urlpatterns import format_suffix_patterns
+>>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     from snippets import views
 
     urlpatterns = [
