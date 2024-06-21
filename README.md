@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 # [I forked this from DRF]
 
-=======
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 # [Django REST framework][docs]
 
 [![build-status-image]][build-status]
@@ -68,7 +65,6 @@ each Python and Django series.
 
 Install using `pip`...
 
-<<<<<<< HEAD
     pip install drf-comments
 
 Add `'drf_comments'` to your `INSTALLED_APPS` setting.
@@ -76,15 +72,6 @@ Add `'drf_comments'` to your `INSTALLED_APPS` setting.
 INSTALLED_APPS = [
     ...
     'drf_comments',
-=======
-    pip install djangorestframework
-
-Add `'rest_framework'` to your `INSTALLED_APPS` setting.
-```python
-INSTALLED_APPS = [
-    ...
-    'rest_framework',
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ]
 ```
 
@@ -95,24 +82,16 @@ Let's take a look at a quick example of using REST framework to build a simple m
 Startup up a new project like so...
 
     pip install django
-<<<<<<< HEAD
     pip install drf-comments
-=======
-    pip install djangorestframework
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     django-admin startproject example .
     ./manage.py migrate
     ./manage.py createsuperuser
 
-<<<<<<< HEAD
 Since this is a fork of django-rest-framework you do not need to install it unless this package is not up-to-date with the current django-rest-framework available
-=======
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 Now edit the `example/urls.py` module in your project:
 
 ```python
-<<<<<<< HEAD
 from django.urls import include, path
 from drf_comments import routers, serializers, viewsets, generics
 from django.db import models
@@ -186,35 +165,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('posts/<int:post_id>/comments/', PostCommentViewSet.as_view({'get': 'list', 'post': 'create'}), name='post-comments-list-create'),
     path('posts/<int:post_id>/comments/<int:pk>/', PostCommentViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}), name='post-comments-detail'),
-=======
-from django.contrib.auth.models import User
-from django.urls import include, path
-from rest_framework import routers, serializers, viewsets
-
-
-# Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'is_staff']
-
-
-# ViewSets define the view behavior.
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-# Routers provide a way of automatically determining the URL conf.
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ]
 ```
 
@@ -225,22 +175,14 @@ Add the following to your `settings.py` module:
 ```python
 INSTALLED_APPS = [
     ...  # Make sure to include the default installed apps here.
-<<<<<<< HEAD
     'drf_comments',
-=======
-    'rest_framework',
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 ]
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-<<<<<<< HEAD
         'drf_comments.permissions.DjangoModelPermissionsOrAnonReadOnly',
-=======
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     ]
 }
 ```
@@ -251,7 +193,6 @@ That's it, we're done!
 
 You can now open the API in your browser at `http://127.0.0.1:8000/`, and view your new 'users' API. If you use the `Login` control in the top right corner you'll also be able to add, create and delete users from the system.
 
-<<<<<<< HEAD
 You can also interact with the API using command line tools such as [`curl`](https://curl.haxx.se/). For example:
 
     $ curl -X POST http://localhost:8000/posts/ \
@@ -312,29 +253,6 @@ print(response.status_code)
 print(response.json())
 
 ```
-=======
-You can also interact with the API using command line tools such as [`curl`](https://curl.haxx.se/). For example, to list the users endpoint:
-
-    $ curl -H 'Accept: application/json; indent=4' -u admin:password http://127.0.0.1:8000/users/
-    [
-        {
-            "url": "http://127.0.0.1:8000/users/1/",
-            "username": "admin",
-            "email": "admin@example.com",
-            "is_staff": true,
-        }
-    ]
-
-Or to create a new user:
-
-    $ curl -X POST -d username=new -d email=new@example.com -d is_staff=false -H 'Accept: application/json; indent=4' -u admin:password http://127.0.0.1:8000/users/
-    {
-        "url": "http://127.0.0.1:8000/users/2/",
-        "username": "new",
-        "email": "new@example.com",
-        "is_staff": false,
-    }
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 # Documentation & Support
 
