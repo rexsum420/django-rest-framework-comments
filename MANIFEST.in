@@ -1,0 +1,9 @@
+include README.md
+include LICENSE.md
+recursive-include tests/ *
+recursive-include drf_comments *.py
+recursive-include drf_comments/static *.js *.css *.map *.png *.ico *.eot *.svg *.ttf *.woff *.woff2
+recursive-include drf_comments/templates *.html schema.js
+recursive-include drf_comments/locale *.mo
+global-exclude __pycache__
+global-exclude *.py[co]
