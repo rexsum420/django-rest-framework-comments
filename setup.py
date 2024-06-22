@@ -17,11 +17,7 @@ if CURRENT_PYTHON < REQUIRED_PYTHON:
 Unsupported Python version
 ==========================
 
-<<<<<<< HEAD
 This version of Django REST Framework w/ Comments requires Python {}.{}, but you're trying
-=======
-This version of Django REST Framework requires Python {}.{}, but you're trying
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 to install it on Python {}.{}.
 
 This may be because you are using a version of pip that doesn't
@@ -29,21 +25,13 @@ understand the python_requires classifier. Make sure you
 have pip >= 9.0 and setuptools >= 24.2, then try again:
 
     $ python -m pip install --upgrade pip setuptools
-<<<<<<< HEAD
     $ python -m pip install drf-comments
-=======
-    $ python -m pip install djangorestframework
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 This will install the latest version of Django REST Framework which works on
 your version of Python. If you can't upgrade your pip (or Python), request
 an older version of Django REST Framework:
 
-<<<<<<< HEAD
     $ python -m pip install "drf-comments<1.01"
-=======
-    $ python -m pip install "djangorestframework<3.10"
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 """.format(*(REQUIRED_PYTHON + CURRENT_PYTHON)))
     sys.exit(1)
 
@@ -61,11 +49,7 @@ def get_version(package):
     return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
 
 
-<<<<<<< HEAD
 version = get_version('drf_comments')
-=======
-version = get_version('rest_framework')
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
 
 
 if sys.argv[-1] == 'publish':
@@ -88,9 +72,8 @@ if sys.argv[-1] == 'publish':
 
 
 setup(
-<<<<<<< HEAD
     name='drf-comments',
-    version='0.3',
+    version='0.4',
     url='https://github.com/rexsum420/django-rest-framework-comments.git',
     license='BSD',
     description='Web APIs for Django with comments, made easy.',
@@ -98,17 +81,6 @@ setup(
     long_description_content_type='text/markdown',
     author='Jeffery Springs',
     author_email='rexsum420@gmail.com',
-=======
-    name='djangorestframework',
-    version=version,
-    url='https://www.django-rest-framework.org/',
-    license='BSD',
-    description='Web APIs for Django, made easy.',
-    long_description=read('README.md'),
-    long_description_content_type='text/markdown',
-    author='Tom Christie',
-    author_email='tom@tomchristie.com',  # SEE NOTE BELOW (*)
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
     install_requires=["django>=4.2", 'backports.zoneinfo;python_version<"3.9"'],
@@ -134,20 +106,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
     ],
     project_urls={
-<<<<<<< HEAD
         'Source': 'https://github.com/rexsum420/django-rest-framework-comments.git',
     },
 )
-=======
-        'Funding': 'https://fund.django-rest-framework.org/topics/funding/',
-        'Source': 'https://github.com/encode/django-rest-framework',
-        'Changelog': 'https://www.django-rest-framework.org/community/release-notes/',
-    },
-)
-
-# (*) Please direct queries to the discussion group, rather than to me directly
-#     Doing so helps ensure your question is helpful to other users.
-#     Queries directly to my email are likely to receive a canned response.
-#
-#     Many thanks for your understanding.
->>>>>>> e13688f0c0d32672d31ef3b9474c2a9f9dd12ae9

@@ -92,15 +92,14 @@ Since this is a fork of django-rest-framework you do not need to install it unle
 Now edit the `example/urls.py` module in your project:
 
 ```python
-from django.urls import include, path
-from drf_comments import routers, serializers, viewsets, generics
 from django.db import models
 from django.contrib.auth.models import User
-from drf_comments.comments import create_comment_model_for, create_comment_serializer_for, create_comment_create_serializer_for, create_comment_viewset_for
+from drf_comments import serializers, viewsets
+from drf_comments.comments import CommentViewSet, create_comment_model_for, create_comment_create_serializer_for, create_comment_serializer_for, create_comment_viewset_for
 from drf_comments.permissions import IsAuthenticated
-from django.contrib.contenttypes.models import ContentType
+from drf_comments.authentication import TokenAuthentication
 
-# model for API you want comments added to
+# model to add comments to
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
@@ -111,24 +110,27 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-PostComment = create_comment_model_for(Post) # all of these need to be automated into one class
-
-# Serializers define the API representation.
+#serializer
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['id', 'user', 'title', 'content', 'created_at', 'updated_at']
 
-PostCommentSerializer = create_comment_serializer_for(Post) # all of these need to be automated into one class
-PostCommentCreateSerializer = create_comment_create_serializer_for(Post) # all of these need to be automated into one class
-
-# Viewsets
+#viewsets
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
 
-PostCommentViewSet = create_comment_viewset_for(Post) # all of these need to be automated into one class
+class PostCommentViewSet(CommentViewSet):
+    model = Post
+    comment_model = create_comment_model_for(Post)
+    serializer_class = create_comment_serializer_for(Post)
+    create_serializer_class = create_comment_create_serializer_for(Post)
+
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
 
 # Routers provide a way of automatically determining the URL conf.
 router = DefaultRouter()
