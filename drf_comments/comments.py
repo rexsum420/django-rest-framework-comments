@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
-from . import serializers, generics, viewsets
-from .permissions import IsAuthenticated
+from rest_framework import serializers, viewsets, generics
+from rest_framework.permissions import IsAuthenticated
 
-# Comment Model
+# Base Comment Model
 class Comment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
@@ -29,52 +29,83 @@ class Comment(models.Model):
     def is_parent(self):
         return self.parent is None
 
-# Comment Serializers
-class CommentSerializer(serializers.ModelSerializer):
-    replies = serializers.SerializerMethodField()
 
+# Function to create a Comment Model dynamically
+def create_comment_model_for(model):
     class Meta:
-        model = Comment
-        fields = ['id', 'user', 'text', 'created_at', 'updated_at', 'replies', 'parent']
+        proxy = True
+        verbose_name = f'{model.__name__} Comment'
+        verbose_name_plural = f'{model.__name__} Comments'
 
-    def get_replies(self, obj):
-        if obj.is_parent:
-            return CommentSerializer(obj.children(), many=True).data
-        return None
+    attrs = {
+        '__module__': model.__module__,
+        'Meta': Meta,
+    }
 
-class CommentCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Comment
-        fields = ['id', 'user', 'text', 'parent', 'content_type', 'object_id']
+    return type(f'{model.__name__}Comment', (Comment,), attrs)
 
-# Comment Views
-class CommentListCreateView(generics.ListCreateAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
 
-    def get_serializer_class(self):
-        if self.request.method == 'POST':
-            return CommentCreateSerializer
-        return CommentSerializer
+# Function to create a Comment Serializer dynamically
+def create_comment_serializer_for(amodel):
+    class DynamicCommentSerializer(serializers.ModelSerializer):
+        replies = serializers.SerializerMethodField()
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        class Meta:
+            model = create_comment_model_for(amodel)
+            fields = ['id', 'user', 'text', 'created_at', 'updated_at', 'replies', 'parent']
 
-class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+        def get_replies(self, obj):
+            if obj.is_parent:
+                return self.__class__(obj.children(), many=True).data
+            return None
 
-# Comment ViewSet
-class CommentViewSet(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+    return DynamicCommentSerializer
 
-    def get_serializer_class(self):
-        if self.request.method in ['POST', 'PUT', 'PATCH']:
-            return CommentCreateSerializer
-        return CommentSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user) 
+def create_comment_create_serializer_for(amodel):
+    class DynamicCommentCreateSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = create_comment_model_for(amodel)
+            fields = ['id', 'user', 'text', 'parent', 'content_type', 'object_id']
+
+    return DynamicCommentCreateSerializer
+
+
+# Function to create a Comment ViewSet dynamically
+def create_comment_viewset_for(amodel):
+    class DynamicCommentViewSet(viewsets.ModelViewSet):
+        serializer_class = create_comment_serializer_for(amodel)
+        permission_classes = [IsAuthenticated]
+
+        def get_queryset(self):
+            content_type = ContentType.objects.get_for_model(amodel)
+            return create_comment_model_for(amodel).objects.filter(content_type=content_type, object_id=self.kwargs['object_id'])
+
+        def get_serializer_class(self):
+            if self.action in ['create', 'update', 'partial_update']:
+                return create_comment_create_serializer_for(amodel)
+            return self.serializer_class
+
+        def perform_create(self, serializer):
+            content_type = ContentType.objects.get_for_model(amodel)
+            serializer.save(user=self.request.user, content_type=content_type, object_id=self.kwargs['object_id'])
+
+    return DynamicCommentViewSet
+
+
+# # Example usage for Post model
+# PostComment = create_comment_model_for(Post)
+# PostCommentSerializer = create_comment_serializer_for(Post)
+# PostCommentCreateSerializer = create_comment_create_serializer_for(Post)
+# PostCommentViewSet = create_comment_viewset_for(Post)
+
+# # URLs
+# from django.urls import path, include
+# from rest_framework.routers import DefaultRouter
+
+# router = DefaultRouter()
+# router.register(r'posts/(?P<object_id>\d+)/comments', PostCommentViewSet, basename='post-comments')
+
+# urlpatterns = [
+#     path('', include(router.urls)),
+# ]

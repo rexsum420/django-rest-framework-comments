@@ -96,7 +96,7 @@ from django.urls import include, path
 from drf_comments import routers, serializers, viewsets, generics
 from django.db import models
 from django.contrib.auth.models import User
-from drf_comments.comments import Comment, CommentSerializer, CommentCreateSerializer
+from drf_comments.comments import create_comment_model_for, create_comment_serializer_for, create_comment_create_serializer_for, create_comment_viewset_for
 from drf_comments.permissions import IsAuthenticated
 from django.contrib.contenttypes.models import ContentType
 
@@ -111,6 +111,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+PostComment = create_comment_model_for(Post) # all of these need to be automated into one class
 
 # Serializers define the API representation.
 class PostSerializer(serializers.ModelSerializer):
@@ -118,53 +119,25 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'user', 'title', 'content', 'created_at', 'updated_at']
 
-class PostCommentSerializer(CommentSerializer):
-    class Meta(CommentSerializer.Meta):
-        model = Comment
-        fields = ['id', 'user', 'text', 'created_at', 'updated_at', 'replies', 'parent']
+PostCommentSerializer = create_comment_serializer_for(Post) # all of these need to be automated into one class
+PostCommentCreateSerializer = create_comment_create_serializer_for(Post) # all of these need to be automated into one class
 
-class PostCommentCreateSerializer(CommentCreateSerializer):
-    class Meta(CommentCreateSerializer.Meta):
-        model = Comment
-        fields = ['id', 'user', 'text', 'parent', 'content_type', 'object_id']
-
-
-# ViewSets define the view behavior.
-
+# Viewsets
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
 
-class PostCommentViewSet(viewsets.ModelViewSet):
-    serializer_class = PostCommentSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        post_id = self.kwargs['post_id']
-        content_type = ContentType.objects.get_for_model(Post)
-        return Comment.objects.filter(content_type=content_type, object_id=post_id)
-
-    def get_serializer_class(self):
-        if self.action in ['create', 'update', 'partial_update']:
-            return PostCommentCreateSerializer
-        return PostCommentSerializer
-
-    def perform_create(self, serializer):
-        post_id = self.kwargs['post_id']
-        content_type = ContentType.objects.get_for_model(Post)
-        serializer.save(user=self.request.user, content_type=content_type, object_id=post_id)
-
+PostCommentViewSet = create_comment_viewset_for(Post) # all of these need to be automated into one class
 
 # Routers provide a way of automatically determining the URL conf.
 router = DefaultRouter()
 router.register(r'posts', PostViewSet)
+router.register(r'posts/(?P<object_id>\d+)/comments', PostCommentViewSet, basename='post-comments')
 
 # Wire up our API using automatic URL routing.
 urlpatterns = [
     path('', include(router.urls)),
-    path('posts/<int:post_id>/comments/', PostCommentViewSet.as_view({'get': 'list', 'post': 'create'}), name='post-comments-list-create'),
-    path('posts/<int:post_id>/comments/<int:pk>/', PostCommentViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}), name='post-comments-detail'),
 ]
 ```
 
