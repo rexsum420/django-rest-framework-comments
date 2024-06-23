@@ -52,6 +52,9 @@ def comment_serializer(amodel):
     class DynamicCommentSerializer(CommentSerializer):
         class Meta(CommentSerializer.Meta):
             model = amodel
+            fields = list(CommentSerializer.Meta.fields)
+            if hasattr(amodel, 'object'):
+                fields.append('object')
 
     return DynamicCommentSerializer
 
@@ -59,6 +62,9 @@ def create_comment_serializer(amodel):
     class DynamicCommentCreateSerializer(CommentCreateSerializer):
         class Meta(CommentCreateSerializer.Meta):
             model = amodel
+            fields = list(CommentCreateSerializer.Meta.fields)
+            if hasattr(amodel, 'object'):
+                fields.append('object')
 
     return DynamicCommentCreateSerializer
 

@@ -111,7 +111,7 @@ class Post(models.Model):
         return self.title
 
 class PostComment(BaseComment):
-    object = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True, null=True)
+    object = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True, null=True) # in version 0.8.2 blank=True and null=True had to be set, in 0.8.3 they are not needed
 
 #serializer
 class PostSerializer(serializers.ModelSerializer):

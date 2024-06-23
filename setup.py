@@ -73,7 +73,7 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name='drf-comments',
-    version='0.8.2',
+    version='0.8.3',
     url='https://github.com/rexsum420/django-rest-framework-comments.git',
     license='BSD',
     description='Web APIs for Django with comments, made easy.',
