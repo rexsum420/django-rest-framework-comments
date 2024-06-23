@@ -4,7 +4,6 @@ from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
 from rest_framework import serializers, viewsets
 
-# Base Comment Model
 class BaseComment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField()
