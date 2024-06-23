@@ -4,6 +4,10 @@ from django.contrib.contenttypes.models import ContentType
 from django.conf import settings
 from rest_framework import serializers, viewsets
 
+from django.db import models
+from django.conf import settings
+from rest_framework import serializers, viewsets
+
 class BaseComment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField()
@@ -19,7 +23,7 @@ class BaseComment(models.Model):
         return f'Comment by {self.user}'
 
     def children(self):
-        return self.objects.filter(parent=self)
+        return self.__class__.objects.filter(parent=self)
 
     @property
     def is_parent(self):
@@ -68,7 +72,7 @@ def create_comment_serializer(amodel):
     return DynamicCommentCreateSerializer
 
 class CommentViewSet(viewsets.ModelViewSet):
-        
+
     def get_serializer_class(self):
         if self.request.method in ['POST', 'PATCH', 'PUT']:
             return self.create_serializer_class
