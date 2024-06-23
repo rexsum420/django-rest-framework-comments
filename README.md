@@ -95,7 +95,7 @@ Now edit the `example/urls.py` module in your project:
 from django.db import models
 from django.contrib.auth.models import User
 from drf_comments import serializers, viewsets
-from drf_comments.comments import CommentViewSet, create_comment_model_for, create_comment_create_serializer_for, create_comment_serializer_for, create_comment_viewset_for
+from drf_comments.comments import CommentViewSet, BaseComment, comment_serializer, create_comment_serializer
 from drf_comments.permissions import IsAuthenticated
 from drf_comments.authentication import TokenAuthentication
 
@@ -109,6 +109,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class PostComment(BaseComment):
+    object = models.ForeignKey(Post, on_delete=models.CASCADE, blank=True, null=True)
 
 #serializer
 class PostSerializer(serializers.ModelSerializer):
@@ -124,10 +127,9 @@ class PostViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication]
 
 class PostCommentViewSet(CommentViewSet):
-    model = Post
-    comment_model = create_comment_model_for(Post)
-    serializer_class = create_comment_serializer_for(Post)
-    create_serializer_class = create_comment_create_serializer_for(Post)
+    queryset = PostComment.objects.all()
+    serializer_class = comment_serializer(PostComment)
+    create_serializer_class = create_comment_serializer(PostComment)
 
     permission_classes = [IsAuthenticated]
     authentication_classes = [TokenAuthentication]
